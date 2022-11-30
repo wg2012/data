@@ -1,0 +1,348 @@
+{
+  "command": "ip",
+  "versions": ["iproute2-ss190107"],
+  "arguments": [
+    {
+      "keyword": "-V",
+      "alias": "-Version",
+      "help": "Print the version of the ip utility and exit."
+    },
+    {
+      "keyword": "-b",
+      "alias": "-batch",
+      "variable": "FILENAME",
+      "type": "file",
+      "help": "Read commands from provided file or standard input and invoke them.  First failure will cause termination of ip."
+    }
+  ],
+  "subcommands": [
+    {
+      "command": "ip link add",
+      "arguments": [
+        {
+          "keyword": "link",
+          "variable": "DEVICE",
+          "type": "netdev"
+        },
+        {
+          "keyword": "name",
+          "variable": "NAME"
+        },
+        {
+          "keyword": "txqueuelen",
+          "variable": "PACKETS"
+        },
+        {
+          "keyword": "address",
+          "variable": "LLADDR"
+        },
+        {
+          "keyword": "broadcast",
+          "variable": "LLADDR"
+        },
+        {
+          "keyword": "mtu",
+          "variable": "MTU"
+        },
+        {
+          "keyword": "index",
+          "variable": "IDX"
+        },
+        {
+          "keyword": "numtxqueues",
+          "variable": "QUEUE_COUNT"
+        },
+        {
+          "keyword": "numrxqueues",
+          "variable": "QUEUE_COUNT"
+        },
+        {
+          "keyword": "gso_max_size",
+          "variable": "BYTES"
+        },
+        {
+          "keyword": "gso_max_segs",
+          "variable": "SEGMENTS"
+        },
+        {
+          "keyword": "type",
+          "variable": "TYPE",
+          "required": true
+        },
+        {
+          "keyword": "",
+          "variable": "ARGS"
+        }
+      ]
+    },
+    {
+      "command": "ip link delete",
+      "arguments": [
+        {
+          "variable": "DEVICE",
+          "type": "netdev"
+        },
+        {
+          "keyword": "group",
+          "variable": "GROUP"
+        },
+        {
+          "keyword": "type",
+          "variable": "TYPE"
+        },
+        {
+          "keyword": "",
+          "variable": "ARGS"
+        }
+      ]
+    },
+    {
+      "command": "ip link set",
+      "arguments": [
+        {
+          "variable": "DEVICE",
+          "type": "netdev"
+        },
+        {
+          "keyword": "group",
+          "variable": "GROUP"
+        },
+        {
+          "variable": "STATUS",
+          "choices": ["up", "down"]
+        },
+        {
+          "keyword": "type",
+          "variable": "ETYPE_AND_ARGS"
+        },
+        {
+          "keyword": "arp",
+          "variable": "STATUS",
+          "choices": ["on", "off"]
+        },
+        {
+          "keyword": "dynamic",
+          "variable": "STATUS",
+          "choices": ["on", "off"]
+        },
+        {
+          "keyword": "multicast",
+          "variable": "STATUS",
+          "choices": ["on", "off"]
+        },
+        {
+          "keyword": "allmulticast",
+          "variable": "STATUS",
+          "choices": ["on", "off"]
+        },
+        {
+          "keyword": "promisc",
+          "variable": "STATUS",
+          "choices": ["on", "off"]
+        },
+        {
+          "keyword": "protodown",
+          "variable": "STATUS",
+          "choices": ["on", "off"]
+        },
+        {
+          "keyword": "trailers",
+          "variable": "STATUS",
+          "choices": ["on", "off"]
+        },
+        {
+          "keyword": "txqueuelen",
+          "variable": "PACKETS"
+        },
+        {
+          "keyword": "name",
+          "variable": "NEWNAME"
+        },
+        {
+          "keyword": "address",
+          "variable": "LLADDR"
+        },
+        {
+          "keyword": "broadcast",
+          "variable": "LLADDR"
+        },
+        {
+          "keyword": "mtu",
+          "variable": "MTU"
+        },
+        {
+          "keyword": "netns",
+          "variable": "PID",
+          "type": "pid"
+        },
+        {
+          "keyword": "netns",
+          "variable": "NETNSNAME",
+          "type": "netns"
+        },
+        {
+          "keyword": "link-netnsid",
+          "variable": "ID"
+        },
+        {
+          "keyword": "alias",
+          "variable": "NAME"
+        },
+        {
+          "keyword": "vf",
+          "variable": "NUM"
+        },
+        {
+          "keyword": "mac",
+          "variable": "LLADDR"
+        },
+        {
+          "variable": "VFVLAN-LIST"
+        },
+        {
+          "keyword": "rate",
+          "variable": "TXRATE"
+        },
+        {
+          "keyword": "max_tx_rate",
+          "variable": "TXRATE"
+        },
+        {
+          "keyword": "min_tx_rate",
+          "variable": "TXRATE"
+        },
+        {
+          "keyword": "spoofchk",
+          "variable": "STATUS",
+          "choices": ["on", "off"]
+        },
+        {
+          "keyword": "query_rss",
+          "variable": "STATUS",
+          "choices": ["on", "off"]
+        },
+        {
+          "keyword": "state",
+          "variable": "STATUS",
+          "choices": ["auto", "enable", "disable"]
+        },
+        {
+          "keyword": "trust",
+          "variable": "STATUS",
+          "choices": ["on", "off"]
+        },
+        {
+          "keyword": "node_guid",
+          "variable": "eui64"
+        },
+        {
+          "keyword": "port_guid",
+          "variable": "eui64"
+        },
+        {
+          "keyword": "xdp off"
+        },
+        {
+          "keyword": "xdp object",
+          "variable": "FILE",
+          "type": "file"
+        },
+        {
+          "keyword": "xdp pinned",
+          "variable": "FILE",
+          "type": "file"
+        },
+        {
+          "keyword": "master",
+          "variable": "DEVICE",
+          "type": "netdev"
+        },
+        {
+          "keyword": "nomaster"
+        },
+        {
+          "keyword": "vrf",
+          "variable": "NAME"
+        },
+        {
+          "keyword": "addrgenmode",
+          "variable": "MODE",
+          "choices": ["eui64", "none", "stable_secret", "random"]
+        },
+        {
+          "keyword": "macaddr flush"
+        },
+        {
+          "keyword": "macaddr add",
+          "variable": "MACADDR"
+        },
+        {
+          "keyword": "macaddr del",
+          "variable": "MACADDR"
+        },
+        {
+          "keyword": "macaddr set",
+          "variable": "MACADDR"
+        }
+      ]
+    },
+    {
+      "command": "ip link show",
+      "arguments": [
+        {
+          "variable": "DEVICE"
+        },
+        {
+          "keyword": "group",
+          "variable": "GROUP"
+        },
+        {
+          "keyword": "up"
+        },
+        {
+          "keyword": "master",
+          "variable": "DEVICE"
+        },
+        {
+          "keyword": "type",
+          "variable": "ETYPE"
+        },
+        {
+          "keyword": "vrf",
+          "variable": "NAME"
+        }
+      ]
+    },
+    {
+      "command": "ip link xstats",
+      "arguments": [
+        {
+          "keyword": "type",
+          "variable": "TYPE",
+          "required": true
+        },
+        {
+          "variable": "ARGS"
+        }
+      ]
+    },
+    {
+      "command": "ip link afstats",
+      "arguments": [
+        {
+          "keyword": "dev",
+          "variable": "DEVICE",
+          "type": "netdev"
+        }
+      ]
+    },
+    {
+      "command": "ip link help",
+      "arguments": [
+        {
+          "variable": "TYPE"
+        }
+      ]
+    }
+  ]
+}

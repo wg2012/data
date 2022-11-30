@@ -1,0 +1,108 @@
+{
+  "command": "unsquashfs",
+  "versions": [
+    "4.3"
+  ],
+  "arguments": [
+    {
+      "keyword": "-v",
+      "alias": "-version",
+      "help": "print version, licence and copyright information."
+    },
+    {
+      "keyword": "-d",
+      "alias": "-dest",
+      "variable": "PATHNAME",
+      "help": "unsquash to PATHNAME, default \"squashfs-root\"."
+    },
+    {
+      "keyword": "-n",
+      "alias": "-no-progress",
+      "help": "don't display the progress bar."
+    },
+    {
+      "keyword": "-no",
+      "alias": "-no-xattrs",
+      "help": "don't extract xattrs in file system."
+    },
+    {
+      "keyword": "-x",
+      "alias": "-xattrs",
+      "help": "extract xattrs in file system (default)."
+    },
+    {
+      "keyword": "-p",
+      "alias": "-processors",
+      "variable": "NUMBER",
+      "help": "use NUMBER processors. By default will use number of processors available."
+    },
+    {
+      "keyword": "-i",
+      "alias": "-info",
+      "help": "print files as they are unsquashed."
+    },
+    {
+      "keyword": "-li",
+      "alias": "-linfo",
+      "help": "print files as they are unsquashed with file attributes (like ls -l output)."
+    },
+    {
+      "keyword": "-l",
+      "alias": "-ls",
+      "help": "list filesystem, but don't unsquash."
+    },
+    {
+      "keyword": "-ll",
+      "alias": "-lls",
+      "help": "list filesystem with file attributes (like ls -l output), but don't unsquash."
+    },
+    {
+      "keyword": "-nl",
+      "alias": "-nls",
+      "help": "list filesystem with file attributes (like ls -n output), but don't unsquash."
+    },
+    {
+      "keyword": "-f",
+      "alias": "-force",
+      "help": "if file already exists then overwrite."
+    },
+    {
+      "keyword": "-s",
+      "alias": "-stat",
+      "help": "display filesystem superblock information."
+    },
+    {
+      "keyword": "-e",
+      "alias": "-ef",
+      "variable": "EXTRACT_FILE",
+      "help": "list of directories or files to extract. One per line."
+    },
+    {
+      "keyword": "-da",
+      "alias": "-data-queue",
+      "variable": "SIZE",
+      "help": "Set data queue to SIZE Mbytes. Default 256 Mbytes."
+    },
+    {
+      "keyword": "-fr",
+      "alias": "-frag-queue",
+      "variable": "SIZE",
+      "help": "Set fragment queue to SIZE Mbytes. Default 256 Mbytes."
+    },
+    {
+      "keyword": "-r",
+      "alias": "-regex",
+      "help": "treat extract names as POSIX regular expressions rather than use the default shell wildcard expansion (globbing)."
+    },
+    {
+      "variable": "FILESYSTEM",
+      "type": "file",
+      "required": true,
+      "help": "The squashfs file to use"
+    },
+    {
+      "variable": "DIR_OR_FILE_TO_EXTRACT",
+      "help": "Directories or files to extract"
+    }
+  ]
+}

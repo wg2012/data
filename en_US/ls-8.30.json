@@ -1,0 +1,229 @@
+{
+  "command": "ls",
+  "versions": [
+    "8.30"
+  ],
+  "arguments": [
+    {
+      "keyword": "-a",
+      "alias": "--all",
+      "help": "do not ignore entries starting with ."
+    },
+    {
+      "keyword": "-A",
+      "alias": "--almost-all",
+      "help": "do not list implied . and .."
+    },
+    {
+      "keyword": "--author",
+      "help": "with -l, print the author of each file"
+    },
+    {
+      "keyword": "-b",
+      "alias": "--escape",
+      "help": "print C-style escapes for nongraphic characters"
+    },
+    {
+      "keyword": "--block-size",
+      "variable": "SIZE",
+      "seperator": "=",
+      "help": "with -l, scale sizes by SIZE when printing them; e.g., '--block-size=M'; see SIZE format below"
+    },
+    {
+      "keyword": "-B",
+      "alias": "--ignore-backups",
+      "help": "do not list implied entries ending with ~"
+    },
+    {
+      "keyword": "--color",
+      "seperator": "=",
+      "variable": "WHEN",
+      "choices": ["always","auto","never"],
+      "help": "colorize the output; WHEN can be 'always' (default if omitted), 'auto', or 'never'; more info below"
+    },
+    {
+      "keyword": "-d",
+      "alias": "--directory",
+      "help": "list directories themselves, not their contents"
+    },
+    {
+      "keyword": "-D",
+      "alias": "--dired",
+      "help": "generate output designed for Emacs' dired mode"
+    },
+    {
+      "keyword": "-F",
+      "alias": "--classify",
+      "help": "append indicator (one of */=>@|) to entries"
+    },
+    {
+      "keyword": "--file-type",
+      "help": "likewise, except do not append '*'"
+    },
+    {
+      "keyword": "--format",
+      "variable": "WORD",
+      "seperator": "=",
+      "help": "across -x, commas -m, horizontal -x, long -l, single-column -1, verbose -l, vertical -C"
+    },
+    {
+      "keyword": "--full-time",
+      "help": "like -l --time-style=full-iso"
+    },
+    {
+      "keyword": "--group-directories-first",
+      "help": "group directories before files;"
+    },
+    {
+      "keyword": "-G",
+      "alias": "--no-group",
+      "help": "in a long listing, don't print group names"
+    },
+    {
+      "keyword": "-h",
+      "alias": "--human-readable",
+      "help": "with -l and -s, print sizes like 1K 234M 2G etc."
+    },
+    {
+      "keyword": "-H",
+      "alias": "--dereference-command-line",
+      "help": "follow symbolic links listed on the command line"
+    },
+    {
+      "keyword": "--dereference-command-line-symlink-to-dir",
+      "help": "follow each command line symbolic link"
+    },
+    {
+      "keyword": "--hide",
+      "variable": "PATTERN",
+      "seperator": "=",
+      "help": "do not list implied entries matching shell PATTERN (overridden by -a or -A)"
+    },
+    {
+      "keyword": "--hyperlink",
+      "variable": "WHEN",
+      "seperator": "=",
+      "help": "hyperlink file names; WHEN can be 'always' (default if omitted), 'auto', or 'never'"
+    },
+    {
+      "keyword": "--indicator-style",
+      "variable": "WORD",
+      "seperator": "=",
+      "choices": ["none","slash","file-type","classify"],
+      "help": "append indicator with style WORD to entry names: none (default), slash (-p), file-type (--file-type), classify (-F)"
+    },
+    {
+      "keyword": "-i",
+      "alias": "--inode",
+      "help": "print the index number of each file"
+    },
+    {
+      "keyword": "-I",
+      "alias": "--ignore",
+      "variable": "PATTERN",
+      "seperator": "=",
+      "help": "do not list implied entries matching shell PATTERN"
+    },
+    {
+      "keyword": "-k",
+      "alias": "--kibibytes",
+      "help": "default to 1024-byte blocks for disk usage; used only with -s and per directory totals"
+    },
+    {
+      "keyword": "-L",
+      "alias": "--dereference",
+      "help": "when showing file information for a symbolic link, show information for the file the link references rather than for the link itself"
+    },
+    {
+      "keyword": "-n",
+      "alias": "--numeric-uid-gid",
+      "help": "like -l, but list numeric user and group IDs"
+    },
+    {
+      "keyword": "-N",
+      "alias": "--literal",
+      "help": "print entry names without quoting"
+    },
+    {
+      "keyword": "-p",
+      "help": "append / indicator to directories"
+    },
+    {
+      "keyword": "-q",
+      "alias": "--hide-control-chars",
+      "help": "print ? instead of nongraphic characters"
+    },
+    {
+      "keyword": "--show-control-chars",
+      "help": "show nongraphic characters as-is (the default, unless program is 'ls' and output is a terminal)"
+    },
+    {
+      "keyword": "-Q",
+      "alias": "--quote-name",
+      "help": "enclose entry names in double quotes"
+    },
+    {
+      "keyword": "--quoting-style",
+      "variable": "WORD",
+      "seperator": "=",
+      "choices":["literal", "locale", "shell", "shell-always", "shell-escape", "shell-escape-always", "c", "escape"],
+      "help": "use quoting style WORD for entry names: literal, locale, shell, shell-always, shell-escape, shell-escape-always, c, escape (overrides QUOTING_STYLE environment variable)"
+    },
+    {
+      "keyword": "-r",
+      "alias": "--reverse",
+      "help": "reverse order while sorting"
+    },
+    {
+      "keyword": "-R",
+      "alias": "--recursive",
+      "help": "list subdirectories recursively"
+    },
+    {
+      "keyword": "-s",
+      "alias": "--size",
+      "help": "print the allocated size of each file, in blocks"
+    },
+    {
+      "keyword": "--sort",
+      "variable": "WORD",
+      "seperator": "=",
+      "help": "sort by WORD instead of name: none (-U), size (-S), time (-t), version (-v), extension (-X)"
+    },
+    {
+      "keyword": "--time",
+      "variable": "WORD",
+      "seperator": "=",
+      "help": "with -l, show time as WORD instead of default modification time: atime or access or use (-u); ctime or status (-c); also use specified time as sort key if --sort=time (newest first)"
+    },
+    {
+      "keyword": "--time-style",
+      "variable": "TIME_STYLE",
+      "seperator": "=",
+      "help": "time/date format with -l; see TIME_STYLE below"
+    },
+    {
+      "keyword": "-T",
+      "alias": "--tabsize",
+      "variable": "COLS",
+      "seperator": "=",
+      "help": "assume tab stops at each COLS instead of 8"
+    },
+    {
+      "keyword": "-w",
+      "alias": "--width",
+      "variable": "COLS",
+      "seperator": "=",
+      "help": "set output width to COLS.  0 means no limit"
+    },
+    {
+      "keyword": "-Z",
+      "alias": "--context",
+      "help": "print any security context of each file"
+    },
+    {
+      "keyword": "--version",
+      "help": "output version information and exit"
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "command": "mksquashfs",
+  "versions": [
+      "4.3-git",
+      "4.3"
+  ],
+  "arguments": [
+    {
+      "variable": "SOURCE",
+      "type": "directory",
+      "required": true,
+      "help": "Directory to archive"
+    },
+    {
+      "variable": "DESTINATION",
+      "type": "file",
+      "required": true,
+      "help": "The file where the contents of the squashfs will be saved"
+    },
+    {
+      "keyword": "-b",
+      "variable": "BLOCK_SIZE",
+      "help": "set data block to BLOCK_SIZE. Default 131072 bytes.",
+      "section": "build"
+    },
+    {
+      "keyword": "-no-exports",
+      "help": "don't make the filesystem exportable via NFS.",
+      "section": "build"
+    },
+    {
+      "keyword": "-no-sparse",
+      "help": "don't detect sparse files.",
+      "section": "build"
+    },
+    {
+      "keyword": "-no-xattrs",
+      "help": "don't store extended attributes.",
+      "section": "build"
+    },
+    {
+      "keyword": "-xattrs",
+      "help": "store extended attributes (default).",
+      "section": "build"
+    },
+    {
+      "keyword": "-noI",
+      "help": "do not compress inode table.",
+      "section": "build"
+    },
+    {
+      "keyword": "-noD",
+      "help": "do not compress data blocks.",
+      "section": "build"
+    },
+    {
+      "keyword": "-noF",
+      "help": "do not compress fragment blocks.",
+      "section": "build"
+    },
+    {
+      "keyword": "-noX",
+      "help": "do not compress extended attributes.",
+      "section": "build"
+    },
+    {
+      "keyword": "-no-fragments",
+      "help": "do not use fragments.",
+      "section": "build"
+    },
+    {
+      "keyword": "-always-use-fragments",
+      "help": "use fragment blocks for files larger than block size.",
+      "section": "build"
+    },
+    {
+      "keyword": "-no-duplicates",
+      "help": "do not perform duplicate checking.",
+      "section": "build"
+    },
+    {
+      "keyword": "-all-root",
+      "help": "make all files owned by root.",
+      "section": "build"
+    },
+    {
+      "keyword": "-force-uid",
+      "variable": "uid",
+      "help": "set all file uids to uid.",
+      "section": "build"
+    },
+    {
+      "keyword": "-force-gid",
+      "variable": "gid",
+      "help": "set all file gids to gid.",
+      "section": "build"
+    },
+    {
+      "keyword": "-nopad",
+      "help": "do not pad filesystem to a multiple of 4K.",
+      "section": "build"
+    },
+    {
+      "keyword": "-keep-as-directory",
+      "help": "if one source directory is specified, create a root directory containing that directory, rather than the contents of the directory.",
+      "section": "build"
+    },
+    {
+      "keyword": "-p",
+      "variable": "PSEUDO_DEFINITION",
+      "help": "Add pseudo file definition.",
+      "section": "filter"
+    },
+    {
+      "keyword": "-pf",
+      "variable": "PSEUDO_FILE",
+      "type": "file",
+      "help": "Add list of pseudo file definitions.",
+      "section": "filter"
+    },
+    {
+      "keyword": "-sort",
+      "variable": "SORT_FILE",
+      "type": "file",
+      "help": "sort files according to priorities in SORT_FILE. One file or dir with priority per line. Priority -32768 to 32767, default priority 0.",
+      "section": "filter"
+    },
+    {
+      "keyword": "-ef",
+      "variable": "EXCLUDE_FILE",
+      "type": "file",
+      "help": "list of exclude dirs/files. One per line.",
+      "section": "filter"
+    },
+    {
+      "keyword": "-wildcards",
+      "help": "Allow extended shell wildcards (globbing) to be used in exclude dirs/files",
+      "section": "filter"
+    },
+    {
+      "keyword": "-regex",
+      "help": "Allow POSIX regular expressions to be used in exclude dirs/files.",
+      "section": "filter"
+    },
+    {
+      "keyword": "-noappend",
+      "help": "do not append to existing filesystem.",
+      "section": "append"
+    },
+    {
+      "keyword": "-root-becomes",
+      "variable": "NAME",
+      "help": "when appending source files/directories, make the original root become a subdirectory in the new root called NAME, rather than adding the new source items to the original root.",
+      "section": "append"
+    },
+    {
+      "keyword": "-version",
+      "help": "print version, licence and copyright message.",
+      "section": "runtime"
+    },
+    {
+      "keyword": "-recover",
+      "variable": "NAME",
+      "help": "recover filesystem data using recovery file NAME.",
+      "section": "runtime"
+    },
+    {
+      "keyword": "-no-recovery",
+      "help": "don't generate a recovery file.",
+      "section": "runtime"
+    },
+    {
+      "keyword": "-info",
+      "help": "print files written to filesystem.",
+      "section": "runtime"
+    },
+    {
+      "keyword": "-no-progress",
+      "help": "don't display the progress bar.",
+      "section": "runtime"
+    },
+    {
+      "keyword": "-processors",
+      "variable": "NUMBER",
+      "help": "Use NUMBER processors. By default will use number of processors available.",
+      "section": "runtime"
+    },
+    {
+      "keyword": "-read-queue",
+      "variable": "SIZE",
+      "help": "Set input queue to SIZE Mbytes. Default 64 Mbytes.",
+      "section": "runtime"
+    },
+    {
+      "keyword": "-write-queue",
+      "variable": "SIZE",
+      "help": "Set output queue to SIZE Mbytes. Default 512 Mbytes.",
+      "section": "runtime"
+    },
+    {
+      "keyword": "-fragment-queue",
+      "variable": "SIZE",
+      "help": "Set fragment queue to SIZE Mbytes. Default 64 Mbytes.",
+      "section": "runtime"
+    },
+    {
+      "keyword": "-comp",
+      "variable": "COMPRESSION",
+      "help": "select COMPRESSION compression. Compressors available: gzip (default), lzo, xz.",
+      "choices": ["gzip", "lzo", "xz"],
+      "default": "gzip",
+      "section": "compression"
+    },
+    {
+      "keyword": "-Xbcj",
+      "variable": "filter1,filter2,...,filterN",
+      "help": "Compress using filter1,filter2,...,filterN in turn (in addition to no filter), and choose the best compression. Available filters: x86, arm, armthumb, powerpc, sparc, ia64.",
+      "section": "compression"
+    },
+    {
+      "keyword": "-Xdict-size",
+      "variable": "DICT_SIZE",
+      "help": "Use DICT_SIZE as the XZ dictionary size. The dictionary size can be specified as a percentage of the block size, or as an absolute value. The dictionary size must be less than or equal to the block size and 8192 bytes or larger. It must also be storable in the xz header as either 2^n or as 2^n+2^(n+1). Example dict-sizes are 75%, 50%, 37.5%, 25%, or 32K, 16K, 8K etc.",
+      "section": "compression"
+    },
+    {
+      "keyword": "-root-owned",
+      "help": "alternative name for -all-root.",
+      "section": "misc"
+    },
+    {
+      "keyword": "-noInodeCompression",
+      "help": "alternative name for -noI.",
+      "section": "misc"
+    },
+    {
+      "keyword": "-noDataCompression",
+      "help": "alternative name for -noD.",
+      "section": "misc"
+    },
+    {
+      "keyword": "-noFragmentCompression",
+      "help": "alternative name for -noF.",
+      "section": "misc"
+    },
+    {
+      "keyword": "-noXattrCompression",
+      "help": "alternative name for -noX.",
+      "section": "misc"
+    }
+  ]
+}
