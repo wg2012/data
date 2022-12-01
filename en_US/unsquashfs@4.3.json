@@ -1,6 +1,7 @@
 {
   "command": "unsquashfs",
-  "versions": [
+  "show_version": "unsquashfs -version | head -1 | awk '{print $3}'",
+  "supported_versions": [
     "4.3"
   ],
   "arguments": [

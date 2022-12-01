@@ -1,8 +1,9 @@
 {
   "command": "mksquashfs",
-  "versions": [
-      "4.3-git",
-      "4.3"
+  "show_version": "mksquashfs -version | head -1 | awk '{print $3}'",
+  "supported_versions": [
+    "4.3-git",
+    "4.3"
   ],
   "arguments": [
     {
@@ -207,7 +208,11 @@
       "keyword": "-comp",
       "variable": "COMPRESSION",
       "help": "select COMPRESSION compression. Compressors available: gzip (default), lzo, xz.",
-      "choices": ["gzip", "lzo", "xz"],
+      "choices": [
+        "gzip",
+        "lzo",
+        "xz"
+      ],
       "default": "gzip",
       "section": "compression"
     },
