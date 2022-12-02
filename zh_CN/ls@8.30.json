@@ -1,0 +1,233 @@
+{
+  "command": "ls",
+  "show_version": "ls -V | awk '{print $NF}'",
+  "supported_versions": ["8.30"],
+  "arguments": [
+    {
+      "keyword": "-a",
+      "alias": "--all",
+      "help": "不忽略以点开头的（默认隐藏的）条目"
+    },
+    {
+      "keyword": "-A",
+      "alias": "--almost-all",
+      "help": "不列出.和.."
+    },
+    {
+      "keyword": "--author",
+      "help": "与-l配合使用, 显示文件的作者"
+    },
+    {
+      "keyword": "-b",
+      "alias": "--escape",
+      "help": "用C语言风格的转义形式显示非图形字符"
+    },
+    {
+      "keyword": "--block-size",
+      "variable": "SIZE",
+      "seperator": "=",
+      "help": "与-l配合使用, 打印时按 SIZE 缩放大小; 例如'--block-size=M'; 单位有K,M,G,T,P,E,Z,Y (1024的幂)或者KB,MB,... (1000的幂)"
+    },
+    {
+      "keyword": "-B",
+      "alias": "--ignore-backups",
+      "help": "不要列出以 ~ 结尾的（一般用于备份的）隐含条目"
+    },
+    {
+      "keyword": "--color",
+      "seperator": "=",
+      "variable": "WHEN",
+      "choices": ["always","auto","never"],
+      "help": "为输出着色; WHEN 可以是 'always'(缺省), 'auto'(当标准输出是终端时着色), 或者 'never'(不着色)"
+    },
+    {
+      "keyword": "-d",
+      "alias": "--directory",
+      "help": "列出目录本身，而不是其内容"
+    },
+    {
+      "keyword": "-D",
+      "alias": "--dired",
+      "help": "生成专为 Emacs 模式设计的输出"
+    },
+    {
+      "keyword": "-F",
+      "alias": "--classify",
+      "help": "将类别指示符号（*/=>@|之一）附加到条目"
+    },
+    {
+      "keyword": "--file-type",
+      "help": "同样，除了不附加“*”"
+    },
+    {
+      "keyword": "--format",
+      "variable": "WORD",
+      "seperator": "=",
+      "choices": ["across", "commas", "horizontal", "long", "single-column", "verbose", "vertical"],
+      "help": "输出格式，对应关系为：across -x, commas -m, horizontal -x, long -l, single-column -1, verbose -l, vertical -C"
+    },
+    {
+      "keyword": "--full-time",
+      "help": "显示完整时间，类似于 -l --time-style=full-iso"
+    },
+    {
+      "keyword": "--group-directories-first",
+      "help": "把目录排在文件前面;"
+    },
+    {
+      "keyword": "-G",
+      "alias": "--no-group",
+      "help": "在长列表中，不打印用户组名称"
+    },
+    {
+      "keyword": "-h",
+      "alias": "--human-readable",
+      "help": "与 -l 和 -s 配合使用，以方便人类阅读的方式打印尺寸，如1K 234M 2G etc."
+    },
+    {
+      "keyword": "-H",
+      "alias": "--dereference-command-line",
+      "help": "访问命令行列出的符号链接所指向的对象"
+    },
+    {
+      "keyword": "--dereference-command-line-symlink-to-dir",
+      "help": "访问命令行列出的符号链接所指向的目录"
+    },
+    {
+      "keyword": "--hide",
+      "variable": "PATTERN",
+      "seperator": "=",
+      "help": "不要列出与 PATTERN 匹配的隐含条目 (优先级低于 -a 或 -A)"
+    },
+    {
+      "keyword": "--hyperlink",
+      "variable": "WHEN",
+      "seperator": "=",
+      "choices": ["always","auto","never"],
+      "help": "超链接文件名"
+    },
+    {
+      "keyword": "--indicator-style",
+      "variable": "WORD",
+      "seperator": "=",
+      "choices": ["none","slash","file-type","classify"],
+      "help": "将带有样式的指示符号附加到条目名称后: none (缺省，不附加), slash (类似与-p), file-type (类似于--file-type), classify (类似于-F)"
+    },
+    {
+      "keyword": "-i",
+      "alias": "--inode",
+      "help": "显示inode号码"
+    },
+    {
+      "keyword": "-I",
+      "alias": "--ignore",
+      "variable": "PATTERN",
+      "seperator": "=",
+      "help": "不要列出与 PATTERN 匹配的隐含条目"
+    },
+    {
+      "keyword": "-k",
+      "alias": "--kibibytes",
+      "help": "默认使用1024字节的块来计算磁盘使用量;仅与 -s 和每个目录总计一起使用"
+    },
+    {
+      "keyword": "-L",
+      "alias": "--dereference",
+      "help": "显示符号链接的文件信息时，显示链接引用的文件的信息，而不是链接本身的信息"
+    },
+    {
+      "keyword": "-n",
+      "alias": "--numeric-uid-gid",
+      "help": "类似于 -l, 但是显示数字化的用户和组编号"
+    },
+    {
+      "keyword": "-N",
+      "alias": "--literal",
+      "help": "打印条目名称而不带引号"
+    },
+    {
+      "keyword": "-p",
+      "help": "给目录追加 / 指示符号"
+    },
+    {
+      "keyword": "-q",
+      "alias": "--hide-control-chars",
+      "help": "隐藏非图形字符，显示问号代之"
+    },
+    {
+      "keyword": "--show-control-chars",
+      "help": "按原样显示非图形字符"
+    },
+    {
+      "keyword": "-Q",
+      "alias": "--quote-name",
+      "help": "用双引号将条目名称括起来"
+    },
+    {
+      "keyword": "--quoting-style",
+      "variable": "WORD",
+      "seperator": "=",
+      "choices":["literal", "locale", "shell", "shell-always", "shell-escape", "shell-escape-always", "c", "escape"],
+      "help": "对条目名称使用指定的引号样式"
+    },
+    {
+      "keyword": "-r",
+      "alias": "--reverse",
+      "help": "排序时顺序相反"
+    },
+    {
+      "keyword": "-R",
+      "alias": "--recursive",
+      "help": "递归列出子目录"
+    },
+    {
+      "keyword": "-s",
+      "alias": "--size",
+      "help": "打印每个文件的分配大小（以块为单位）"
+    },
+    {
+      "keyword": "--sort",
+      "variable": "WORD",
+      "seperator": "=",
+      "choices": ["none", "size", "time", "version", "extension"],
+      "help": "按WORD而不是名称排序"
+    },
+    {
+      "keyword": "--time",
+      "variable": "WORD",
+      "seperator": "=",
+      "choices": ["atime", "access", "use", "ctime", "status"],
+      "help": "与-l配合使用, 将时间显示为 WORD 而不是默认修改时间"
+    },
+    {
+      "keyword": "--time-style",
+      "variable": "TIME_STYLE",
+      "seperator": "=",
+      "choices": ["full-iso", "long-iso", "iso", "locale"],
+      "help": "与-l配合使用的时间/日期格式"
+    },
+    {
+      "keyword": "-T",
+      "alias": "--tabsize",
+      "variable": "COLS",
+      "seperator": "=",
+      "help": "设定制表位的宽度是 COLS 而不是 8 "
+    },
+    {
+      "keyword": "-w",
+      "alias": "--width",
+      "variable": "COLS",
+      "seperator": "=",
+      "help": "将输出宽度设置为 COLS. 0 表示无限制"
+    },
+    {
+      "keyword": "-Z",
+      "alias": "--context",
+      "help": "打印每个文件的安全上下文"
+    },
+    {
+      "keyword": "--version",
+      "help": "输出版本信息并退出"
+    }
+  ]
+}
