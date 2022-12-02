@@ -1,6 +1,6 @@
 {
   "command": "ls",
-  "show_version": "ip -V | awk '{print $NF}'",
+  "show_version": "ls -V | awk '{print $NF}'",
   "supported_versions": ["8.30"],
   "arguments": [
     {
