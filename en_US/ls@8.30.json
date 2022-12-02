@@ -63,6 +63,7 @@
       "keyword": "--format",
       "variable": "WORD",
       "seperator": "=",
+      "choices": ["across", "commas", "horizontal", "long", "single-column", "verbose", "vertical"],
       "help": "across -x, commas -m, horizontal -x, long -l, single-column -1, verbose -l, vertical -C"
     },
     {
@@ -102,6 +103,7 @@
       "keyword": "--hyperlink",
       "variable": "WHEN",
       "seperator": "=",
+      "choices": ["always","auto","never"],
       "help": "hyperlink file names; WHEN can be 'always' (default if omitted), 'auto', or 'never'"
     },
     {
@@ -193,12 +195,14 @@
       "keyword": "--time",
       "variable": "WORD",
       "seperator": "=",
+      "choices": ["atime", "access", "use", "ctime", "status"],
       "help": "with -l, show time as WORD instead of default modification time: atime or access or use (-u); ctime or status (-c); also use specified time as sort key if --sort=time (newest first)"
     },
     {
       "keyword": "--time-style",
       "variable": "TIME_STYLE",
       "seperator": "=",
+      "choices": ["full-iso", "long-iso", "iso", "locale"],
       "help": "time/date format with -l; see TIME_STYLE below"
     },
     {
