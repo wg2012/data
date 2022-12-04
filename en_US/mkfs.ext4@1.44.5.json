@@ -1,0 +1,164 @@
+{
+  "command": "mkfs.ext4",
+  "show_version": "mkfs.ext4 -V 2>&1 | head -1 | awk '{print $2}'",
+  "supported_versions": [
+    "1.44.5"
+  ],
+  "arguments": [
+    {
+      "keyword": "-b",
+      "variable": "block-size",
+      "help": "Specify the size of blocks in bytes. Valid block-size values are 1024, 2048 and 4096 bytes per block. If omitted, block-size is heuristically determined by the filesystem size and the expected usage of the filesystem (see the -T option). If block-size is preceded by a negative sign ('-'), then mke2fs will use heuristics to determine the appropriate block size, with the constraint that the block size will be at least block-size bytes. This is useful for certain hardware devices which require that the blocksize be a multiple of 2k."
+    },
+    {
+      "keyword": "-c",
+      "help": "Check the device for bad blocks before creating the file system.\tIf this option is specified twice, then a slower read-write test is used instead of a fast read-only test."
+    },
+    {
+      "keyword": "-C",
+      "variable": "cluster-size",
+      "help": "Specify  the size of cluster in bytes for filesystems using the bigalloc feature.  Valid cluster-size values are from 2048 to 256M bytes per cluster.  This can only be specified if the bigalloc feature is enabled.  (See the ext4 (5) man page for more details about bigalloc.)   The default cluster size if bigalloc is enabled is 16 times the block size."
+    },
+    {
+      "keyword": "-d",
+      "variable": "root-directory",
+      "help": "Copy the contents of the given directory into the root directory of the filesystem."
+    },
+    {
+      "keyword": "-D",
+      "help": "Use direct I/O when writing to the disk.\tThis avoids mke2fs dirtying a lot of buffer cache memory, which may impact other applications running on a  busy  server.   This  option  will\tcausemke2fs to run much more slowly, however, so there is a tradeoff to using direct I/O."
+    },
+    {
+      "keyword": "-e",
+      "variable": "error-behavior",
+      "help": "Change the behavior of the kernel code when errors are detected.\tIn all cases, a filesystem error will cause e2fsck(8) to check the filesystem on the next boot.  error-behavior can be one ofthe following:"
+    },
+    {
+      "keyword": "-E",
+      "variable": "extended-options",
+      "help": "Set extended options for the filesystem.\tExtended options are comma separated, and may take an argument using the equals ('=') sign.  The -E option used to  be\t-R  in\tearlier  versions  ofmke2fs.  The -R option is still accepted for backwards compatibility, but is deprecated.\tThe following extended options are supported:"
+    },
+    {
+      "keyword": "-F",
+      "help": "Force mke2fs to create a filesystem, even if the specified device is not a partition on a block special device, or if other parameters do not make sense.  In order to force mke2fs to create afilesystem even if the filesystem appears to be in use or is mounted (a truly dangerous thing to do), this option must be specified twice."
+    },
+    {
+      "keyword": "-g",
+      "variable": "blocks-per-group",
+      "help": "Specify  the  number  of blocks in a block group.  There is generally no reason for the user to ever set this parameter, as the default is optimal for the filesystem.  (For administrators whoare creating filesystems on RAID arrays, it is preferable to use the stride RAID parameter as part of the -E option rather than manipulating the number of blocks per group.)  This  option  isgenerally used by developers who are developing test cases."
+    },
+    {
+      "keyword": "-G",
+      "variable": "number-of-groups",
+      "help": "Specify  the  number of block groups that will be packed together to create a larger virtual block group (or \"flex_bg group\") in an ext4 filesystem.  This improves meta-data locality and performance on meta-data heavy workloads.  The number of groups must be a power of 2 and may only be specified if the flex_bg filesystem feature is enabled."
+    },
+    {
+      "keyword": "-i",
+      "variable": "bytes-per-inode",
+      "help": "Specify the bytes/inode ratio.  mke2fs creates an inode for every bytes-per-inode bytes of space on the disk.  The larger the bytes-per-inode ratio, the fewer inodes will  be  created.\t Thisvalue  generally\tshouldn't  be  smaller than the blocksize of the filesystem, since in that case more inodes would be made than can ever be used.  Be warned that it is not possible to changethis ratio on a filesystem after it is created, so be careful deciding the correct value for this parameter.  Note that resizing a filesystem changes the number of inodes to maintain this ratio."
+    },
+    {
+      "keyword": "-I",
+      "variable": "inode-size",
+      "help": "Specify  the  size  of each inode in bytes.  The inode-size value must be a power of 2 larger or equal to 128.  The larger the inode-size the more space the inode table will consume, and thisreduces the usable space in the filesystem and can also negatively impact performance.  It is not possible to change this value after the filesystem is created."
+    },
+    {
+      "keyword": "-j",
+      "help": "Create the filesystem with an ext3 journal.  If the -J option is not specified, the default journal parameters will be used to create an appropriately sized journal (given the size of thefilesystem) stored within the filesystem.  Note that you must be using a kernel which has ext3 support in order to actually make use of the journal."
+    },
+    {
+      "keyword": "-J",
+      "variable": "journal-options",
+      "help": "Create  the  ext3  journal using options specified on the command-line.  Journal options are comma separated, and may take an argument using the equals ('=')  sign.  The following journal options are supported:"
+    },
+    {
+      "keyword": "-l",
+      "variable": "filename",
+      "type": "file",
+      "help": "Read the bad blocks list from filename.  Note that the block numbers in the bad block list must be generated using the same block size as used by mke2fs.  As a result, the -c option to mke2fsis a much simpler and less error-prone method of checking a disk for bad blocks before formatting it, as mke2fs will automatically pass the correct parameters to the badblocks program."
+    },
+    {
+      "keyword": "-L",
+      "variable": "new-volume-label",
+      "help": "Set the volume label for the filesystem to new-volume-label.  The maximum length of the volume label is 16 bytes."
+    },
+    {
+      "keyword": "-m",
+      "variable": "reserved-blocks-percentage",
+      "help": "Specify  the  percentage of the filesystem blocks reserved for the super-user.  This avoids fragmentation, and allows root-owned daemons, such as syslogd(8), to continue to function correctlyafter non-privileged processes are prevented from writing to the filesystem.  The default percentage is 5%."
+    },
+    {
+      "keyword": "-M",
+      "variable": "last-mounted-directory",
+      "help": "Set the last mounted directory for the filesystem.  This might be useful for the sake of utilities that key off of the last mounted directory to\tdetermine  where  the  filesystem  should  bemounted."
+    },
+    {
+      "keyword": "-n",
+      "help": "Causes  mke2fs to not actually create a filesystem, but display what it would do if it were to create a filesystem.  This can be used to determine the location of the backup superblocks for aparticular filesystem, so long as the mke2fs parameters that were passed when the filesystem was originally created are used again.  (With the -n option added, of course!)"
+    },
+    {
+      "keyword": "-N",
+      "variable": "number-of-inodes",
+      "help": "Overrides the default calculation of the number of inodes that should be reserved for the filesystem (which is based on the number of blocks and the bytes-per-inode ratio).  This  allows  theuser to specify the number of desired inodes directly."
+    },
+    {
+      "keyword": "-o",
+      "variable": "creator-os",
+      "help": "Overrides the default value of the \"creator operating system\" field of the filesystem.  The creator field is set by default to the name of the OS the mke2fs executable was compiled for."
+    },
+    {
+      "keyword": "-O",
+      "variable": "feature,...",
+      "help": "Create a filesystem with the given features (filesystem options), overriding the default filesystem options."
+    },
+    {
+      "keyword": "-q",
+      "help": "Quiet execution.\tUseful if mke2fs is run in a script."
+    },
+    {
+      "keyword": "-r",
+      "variable": "revision",
+      "help": "Set the filesystem revision for the new filesystem.  Note that 1.2 kernels only support revision 0 filesystems.  The default is to create revision 1 filesystems."
+    },
+    {
+      "keyword": "-S",
+      "help": "Write superblock and group descriptors only. "
+    },
+    {
+      "keyword": "-t",
+      "variable": "fs-type",
+      "choices": ["ext2", "ext3", "ext4"],
+      "help": "Specify the filesystem type (i.e., ext2, ext3, ext4, etc.) that is to be created.  If this option is not specified, mke2fs will pick a default either via how the command was run (for example,using a name of the form mkfs.ext2, mkfs.ext3, etc.) or via a default as defined by the /etc/mke2fs.conf file.   This option controls which filesystem options are used by  default,  based  onthe fstypes configuration stanza in /etc/mke2fs.conf."
+    },
+    {
+      "keyword": "-T",
+      "variable": "usage-type,...",
+      "help": "Specify how the filesystem is going to be used, so that mke2fs can choose optimal filesystem parameters for that use.  The usage types that are supported are defined in the configuration file/etc/mke2fs.conf.  The user may specify one or more usage types using a comma separated list."
+    },
+    {
+      "keyword": "-U",
+      "variable": "UUID",
+      "help": "Set   the   universally unique identifier   (UUID)   of   the   filesystem   to   UUID like this:\"c1b9d5a2-f162-11cf-9ece-0020afc76f16\". The UUID parameter may also be one of the following: clear, random, time"
+    },
+    {
+      "keyword": "-v",
+      "help": "Verbose execution."
+    },
+    {
+      "keyword": "-V",
+      "help": "Print the version number of mke2fs and exit."
+    },
+    {
+      "keyword": "-z",
+      "variable": "undo_file",
+      "type": "savefile",
+      "help": "Before overwriting a file system block, write the old contents of the block to an undo file.  This undo file can be used with e2undo(8) to restore the old contents of the file  system  shouldsomething  go  wrong.   If  the  empty  string  is  passed  as  the  undo_file  argument, the undo file will be written to a file named mke2fs-device.e2undo in the directory specified via theE2FSPROGS_UNDO_DIR environment variable or the undo_dir directive in the configuration file."
+    },
+    {
+        "variable": "device",
+        "type": "blockdev",
+        "help": "The block device to format",
+        "required": true
+    }
+  ]
+}
