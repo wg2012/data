@@ -1,0 +1,120 @@
+{
+  "command": "mkfs.vfat",
+  "show_version": "echo",
+  "supported_versions": [
+    "4.1-2"
+  ],
+  "arguments": [
+    {
+      "keyword": "-a",
+      "help": "Disables alignment; this may provide a handful of additional clusters of storage at the expense of a significant performance degradation on RAIDs, flash media or large-sector hard disks."
+    },
+    {
+      "keyword": "-A",
+      "help": "Use  Atari  variation of the MS-DOS filesystem."
+    },
+    {
+      "keyword": "-b",
+      "variable": "SECTOR-OF-BACKUP",
+      "help": "Selects the location of the backup boot sector for FAT32.  Default depends on number of reserved sectors, but usually is sector 6.  The backup must be within the range of reserved sectors."
+    },
+    {
+      "keyword": "-c",
+      "help": "Check the device for bad blocks before creating the filesystem."
+    },
+        {
+      "keyword": "-C",
+      "help": "Create the file given as DEVICE on the command line, and write the to-be-created filesystem to it.  This can be used to create the new filesystem  in a file instead of on a real device, and to avoid using dd in advance to create a file of appropriate size. With this option, the BLOCK-COUNT must be given."
+    },
+    {
+      "keyword": "-D",
+      "variable": "DRIVE-NUMBER",
+      "help": "Specify the BIOS drive number to be stored in the FAT boot sector.  This value is usually 0x80 for hard disks and 0x00 for floppy devices or partitions to be used for floppy emulation."
+    },
+    {
+      "keyword": "-f",
+      "variable": "NUMBER-OF-FATS",
+      "help": "Specify the number of file allocation tables in the filesystem.  The default is 2."
+    },
+    {
+      "keyword": "-F",
+      "variable": "FAT-SIZE",
+      "choices": ["12", "16", "32"],
+      "help": "Specifies  the  type  of  file  allocation  tables  used  (12, 16 or 32 bit).  If nothing is specified, mkfs.fat will automatically select between 12, 16 and 32 bit, whatever fits better for thefilesystem size."
+    },
+    {
+      "keyword": "-h",
+      "variable": "NUMBER-OF-HIDDEN-SECTORS",
+      "help": "Select the number of hidden sectors in the volume.  Apparently some digital cameras get indigestion if you feed them a CF card without such hidden sectors, this  option  allows  you  to  satisfythem."
+    },
+    {
+      "keyword": "-i",
+      "variable": "VOLUME-ID",
+      "help": "Sets the volume ID of the newly created filesystem; VOLUME-ID is a 32-bit hexadecimal number (for example, 2e24ec82).  The default is a number which depends on the filesystem creation time."
+    },
+    {
+      "keyword": "-l",
+      "variable": "FILENAME",
+      "type": "file",
+      "help": "Read the bad blocks list from FILENAME."
+    },
+    {
+      "keyword": "-m",
+      "variable": "MESSAGE-FILE",
+      "type": "file",
+      "help": "Sets  the  message  the  user receives on attempts to boot this filesystem without having properly installed an operating system.  The message file must not exceed 418 bytes once line feeds havebeen converted to carriage return-line feed combinations, and tabs have been expanded.  If the filename is a hyphen (-), the text is taken from standard input."
+    },
+    {
+      "keyword": "-M",
+      "variable": "FAT-MEDIA-TYPE",
+      "help": "Specify the media type to be stored in the FAT boot sector.\tThis value is usually 0xF8 for hard disks and is 0xF0 or a value from 0xF9 to 0xFF for floppies or partitions to be used  for  floppyemulation."
+    },
+    {
+      "keyword": "-n",
+      "variable": "VOLUME-NAME",
+      "help": "Sets the volume name (label) of the filesystem.  The volume name can be up to 11 characters long.  The default is no label."
+    },
+    {
+      "keyword": "-r",
+      "variable": "ROOT-DIR-ENTRIES",
+      "help": "Select the number of entries available in the root directory.  The default is 112 or 224 for floppies and 512 for hard disks."
+    },
+    {
+      "keyword": "-R",
+      "variable": "NUMBER-OF-RESERVED-SECTORS",
+      "help": "Select the number of reserved sectors.  With FAT32 format at least 2 reserved sectors are needed, the default is 32.  Otherwise the default is 1 (only the boot sector)."
+    },
+    {
+      "keyword": "-s",
+      "variable": "SECTORS-PER-CLUSTER",
+      "help": "Specify the number of disk sectors per cluster.  Must be a power of 2, i.e. 1, 2, 4, 8, ... 128."
+    },
+    {
+      "keyword": "-S",
+      "variable": "LOGICAL-SECTOR-SIZE",
+      "help": "Specify  the  number of bytes per logical sector.  Must be a power of 2 and greater than or equal to 512, i.e. 512, 1024, 2048, 4096, 8192, 16384, or 32768.  Values larger than 4096 are not conforming to the FAT file system specification and may not work everywhere."
+    },
+    {
+      "keyword": "-v",
+      "help": "Verbose execution."
+    },
+    {
+      "keyword": "--invariant",
+      "help": "Use constants for normally randomly generated or time based data such as volume ID and creation time.  Multiple runs of mkfs.fat on the same device create identical  results  with\tthis  option.Its main purpose is testing mkfs.fat."
+    },
+    {
+      "keyword": "--help",
+      "help": "Display option summary and exit."
+    },
+    {
+      "variable": "device",
+      "type": "blockdev",
+      "help": "The block device to format",
+      "required": true
+    },
+    {
+      "variable": "BLOCK-COUNT",
+      "help": "BLOCK-COUNT is the number of blocks on the device. If omitted, mkfs.fat automatically determines the filesystem size."
+    }
+  ]
+}
