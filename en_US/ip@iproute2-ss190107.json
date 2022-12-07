@@ -1,9 +1,7 @@
 {
   "command": "ip",
   "show_version": "ip -V | awk '{print $NF}'",
-  "supported_versions": [
-    "iproute2-ss190107"
-  ],
+  "supported_versions": ["iproute2-ss190107"],
   "arguments": [
     {
       "keyword": "-V",
@@ -112,10 +110,7 @@
         },
         {
           "variable": "STATUS",
-          "choices": [
-            "up",
-            "down"
-          ]
+          "choices": ["up", "down"]
         },
         {
           "keyword": "type",
@@ -124,58 +119,37 @@
         {
           "keyword": "arp",
           "variable": "STATUS",
-          "choices": [
-            "on",
-            "off"
-          ]
+          "choices": ["on", "off"]
         },
         {
           "keyword": "dynamic",
           "variable": "STATUS",
-          "choices": [
-            "on",
-            "off"
-          ]
+          "choices": ["on", "off"]
         },
         {
           "keyword": "multicast",
           "variable": "STATUS",
-          "choices": [
-            "on",
-            "off"
-          ]
+          "choices": ["on", "off"]
         },
         {
           "keyword": "allmulticast",
           "variable": "STATUS",
-          "choices": [
-            "on",
-            "off"
-          ]
+          "choices": ["on", "off"]
         },
         {
           "keyword": "promisc",
           "variable": "STATUS",
-          "choices": [
-            "on",
-            "off"
-          ]
+          "choices": ["on", "off"]
         },
         {
           "keyword": "protodown",
           "variable": "STATUS",
-          "choices": [
-            "on",
-            "off"
-          ]
+          "choices": ["on", "off"]
         },
         {
           "keyword": "trailers",
           "variable": "STATUS",
-          "choices": [
-            "on",
-            "off"
-          ]
+          "choices": ["on", "off"]
         },
         {
           "keyword": "txqueuelen",
@@ -241,35 +215,22 @@
         {
           "keyword": "spoofchk",
           "variable": "STATUS",
-          "choices": [
-            "on",
-            "off"
-          ]
+          "choices": ["on", "off"]
         },
         {
           "keyword": "query_rss",
           "variable": "STATUS",
-          "choices": [
-            "on",
-            "off"
-          ]
+          "choices": ["on", "off"]
         },
         {
           "keyword": "state",
           "variable": "STATUS",
-          "choices": [
-            "auto",
-            "enable",
-            "disable"
-          ]
+          "choices": ["auto", "enable", "disable"]
         },
         {
           "keyword": "trust",
           "variable": "STATUS",
-          "choices": [
-            "on",
-            "off"
-          ]
+          "choices": ["on", "off"]
         },
         {
           "keyword": "node_guid",
@@ -307,12 +268,7 @@
         {
           "keyword": "addrgenmode",
           "variable": "MODE",
-          "choices": [
-            "eui64",
-            "none",
-            "stable_secret",
-            "random"
-          ]
+          "choices": ["eui64", "none", "stable_secret", "random"]
         },
         {
           "keyword": "macaddr flush"
@@ -335,7 +291,8 @@
       "command": "ip link show",
       "arguments": [
         {
-          "variable": "DEVICE"
+          "variable": "DEVICE",
+          "type": "netdev"
         },
         {
           "keyword": "group",
@@ -346,7 +303,8 @@
         },
         {
           "keyword": "master",
-          "variable": "DEVICE"
+          "variable": "DEVICE",
+          "type": "netdev"
         },
         {
           "keyword": "type",
