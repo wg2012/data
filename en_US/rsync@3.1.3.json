@@ -1,0 +1,689 @@
+{
+  "command": "rsync",
+  "show_version": "rsync --version | awk '{print $3}'",
+  "supported_versions": [
+    "3.1.3"
+  ],
+  "arguments": [
+    {
+      "keyword": "-v",
+      "alias": "--verbose",
+      "help": "increase verbosity"
+    },
+    {
+      "keyword": "-q",
+      "alias": "--quiet",
+      "help": "suppress non-error messages"
+    },
+    {
+      "keyword": "--no-motd",
+      "help": "suppress daemon-mode MOTD (see caveat)"
+    },
+    {
+      "keyword": "-c",
+      "alias": "--checksum",
+      "help": "skip based on checksum, not mod-time & size"
+    },
+    {
+      "keyword": "-a",
+      "alias": "--archive",
+      "help": "archive mode; equals -rlptgoD (no -H,-A,-X)"
+    },
+    {
+      "keyword": "--no-OPTION",
+      "help": "turn off an implied OPTION (e.g. --no-D)"
+    },
+    {
+      "keyword": "-r",
+      "alias": "--recursive",
+      "help": "recurse into directories"
+    },
+    {
+      "keyword": "-R",
+      "alias": "--relative",
+      "help": "use relative path names"
+    },
+    {
+      "keyword": "--no-implied-dirs",
+      "help": "don't send implied dirs with --relative"
+    },
+    {
+      "keyword": "-b",
+      "alias": "--backup",
+      "help": "make backups (see --suffix & --backup-dir)"
+    },
+    {
+      "keyword": "--backup-dir",
+      "variable": "DIR",
+      "seperator": "=",
+      "type": "directory",
+      "help": "make backups into hierarchy based in DIR"
+    },
+    {
+      "keyword": "--suffix",
+      "variable": "SUFFIX",
+      "seperator": "=",
+      "help": "backup suffix (default ~ w/o --backup-dir)"
+    },
+    {
+      "keyword": "-u",
+      "alias": "--update",
+      "help": "skip files that are newer on the receiver"
+    },
+    {
+      "keyword": "--inplace",
+      "help": "update destination files in-place"
+    },
+    {
+      "keyword": "--append",
+      "help": "append data onto shorter files"
+    },
+    {
+      "keyword": "--append-verify",
+      "help": "--append w/old data in file checksum"
+    },
+    {
+      "keyword": "-d",
+      "alias": "--dirs",
+      "help": "transfer directories without recursing"
+    },
+    {
+      "keyword": "-l",
+      "alias": "--links",
+      "help": "copy symlinks as symlinks"
+    },
+    {
+      "keyword": "-L",
+      "alias": "--copy-links",
+      "help": "transform symlink into referent file/dir"
+    },
+    {
+      "keyword": "--copy-unsafe-links",
+      "help": "only \"unsafe\" symlinks are transformed"
+    },
+    {
+      "keyword": "--safe-links",
+      "help": "ignore symlinks that point outside the tree"
+    },
+    {
+      "keyword": "--munge-links",
+      "help": "munge symlinks to make them safer"
+    },
+    {
+      "keyword": "-k",
+      "alias": "--copy-dirlinks",
+      "help": "transform symlink to dir into referent dir"
+    },
+    {
+      "keyword": "-K",
+      "alias": "--keep-dirlinks",
+      "help": "treat symlinked dir on receiver as dir"
+    },
+    {
+      "keyword": "-H",
+      "alias": "--hard-links",
+      "help": "preserve hard links"
+    },
+    {
+      "keyword": "-p",
+      "alias": "--perms",
+      "help": "preserve permissions"
+    },
+    {
+      "keyword": "-E",
+      "alias": "--executability",
+      "help": "preserve executability"
+    },
+    {
+      "keyword": "--chmod",
+      "variable": "CHMOD",
+      "seperator": "=",
+      "help": "affect file and/or directory permissions. Prefix D for a directory, F for a file. For example: --chmod=Dg+s,ug+w,Fo-w,+X"
+    },
+    {
+      "keyword": "-A",
+      "alias": "--acls",
+      "help": "preserve ACLs (implies -p)"
+    },
+    {
+      "keyword": "-X",
+      "alias": "--xattrs",
+      "help": "preserve extended attributes"
+    },
+    {
+      "keyword": "-o",
+      "alias": "--owner",
+      "help": "preserve owner (super-user only)"
+    },
+    {
+      "keyword": "-g",
+      "alias": "--group",
+      "help": "preserve group"
+    },
+    {
+      "keyword": "--devices",
+      "help": "preserve device files (super-user only)"
+    },
+    {
+      "keyword": "--specials",
+      "help": "preserve special files"
+    },
+    {
+      "keyword": "-D",
+      "help": "same as --devices --specials"
+    },
+    {
+      "keyword": "-t",
+      "alias": "--times",
+      "help": "preserve modification times"
+    },
+    {
+      "keyword": "-O",
+      "alias": "--omit-dir-times",
+      "help": "omit directories from --times"
+    },
+    {
+      "keyword": "-J",
+      "alias": "--omit-link-times",
+      "help": "omit symlinks from --times"
+    },
+    {
+      "keyword": "--super",
+      "help": "receiver attempts super-user activities"
+    },
+    {
+      "keyword": "--fake-super",
+      "help": "store/recover privileged attrs using xattrs"
+    },
+    {
+      "keyword": "-S",
+      "alias": "--sparse",
+      "help": "turn sequences of nulls into sparse blocks"
+    },
+    {
+      "keyword": "--preallocate",
+      "help": "allocate dest files before writing"
+    },
+    {
+      "keyword": "-n",
+      "alias": "--dry-run",
+      "help": "perform a trial run with no changes made"
+    },
+    {
+      "keyword": "-W",
+      "alias": "--whole-file",
+      "help": "copy files whole (w/o delta-xfer algorithm)"
+    },
+    {
+      "keyword": "--checksum-choice",
+      "variable": "STR",
+      "seperator": "=",
+      "choices": ["auto", "md4", "md5", "none"],
+      "help": "choose the checksum algorithms"
+    },
+    {
+      "keyword": "-x",
+      "alias": "--one-file-system",
+      "help": "don't cross filesystem boundaries"
+    },
+    {
+      "keyword": "-B",
+      "alias": "--block-size",
+      "variable": "SIZE",
+      "seperator": "=",
+      "help": "force a fixed checksum block-size"
+    },
+    {
+      "keyword": "-e",
+      "alias": "--rsh",
+      "variable": "COMMAND",
+      "seperator": "=",
+      "help": "specify the remote shell to use"
+    },
+    {
+      "keyword": "--rsync-path",
+      "variable": "PROGRAM",
+      "seperator": "=",
+      "help": "specify the rsync to run on remote machine"
+    },
+    {
+      "keyword": "-M",
+      "alias": "--remote-option",
+      "variable": "OPTION",
+      "seperator": "=",
+      "help": "Pass an option to the remote system"
+    },
+    {
+      "keyword": "--existing",
+      "help": "skip creating new files on receiver"
+    },
+    {
+      "keyword": "--ignore-existing",
+      "help": "skip updating files that exist on receiver"
+    },
+    {
+      "keyword": "--remove-source-files",
+      "help": "sender removes synchronized files (non-dir)"
+    },
+    {
+      "keyword": "--delete",
+      "help": "delete extraneous files from dest dirs"
+    },
+    {
+      "keyword": "--del",
+      "alias": "--delete-during",
+      "help": "receiver deletes during the transfer"
+    },
+    {
+      "keyword": "--delete-before",
+      "help": "receiver deletes before xfer, not during"
+    },
+    {
+      "keyword": "--delete-delay",
+      "help": "find deletions during, delete after"
+    },
+    {
+      "keyword": "--delete-after",
+      "help": "receiver deletes after transfer, not during"
+    },
+    {
+      "keyword": "--delete-excluded",
+      "help": "also delete excluded files from dest dirs"
+    },
+    {
+      "keyword": "--ignore-missing-args",
+      "help": "ignore missing source args without error"
+    },
+    {
+      "keyword": "--delete-missing-args",
+      "help": "delete missing source args from destination"
+    },
+    {
+      "keyword": "--ignore-errors",
+      "help": "delete even if there are I/O errors"
+    },
+    {
+      "keyword": "--force",
+      "help": "force deletion of dirs even if not empty"
+    },
+    {
+      "keyword": "--max-delete",
+      "variable": "NUM",
+      "seperator": "=",
+      "help": "don't delete more than NUM files"
+    },
+    {
+      "keyword": "--max-size",
+      "variable": "SIZE",
+      "seperator": "=",
+      "help": "don't transfer any file larger than SIZE. Suffixes: K, M, G"
+    },
+    {
+      "keyword": "--min-size",
+      "variable": "SIZE",
+      "seperator": "=",
+      "help": "don't transfer any file smaller than SIZE"
+    },
+    {
+      "keyword": "--partial",
+      "help": "keep partially transferred files"
+    },
+    {
+      "keyword": "--partial-dir",
+      "variable": "DIR",
+      "seperator": "=",
+      "type": "directory",
+      "help": "put a partially transferred file into DIR"
+    },
+    {
+      "keyword": "--delay-updates",
+      "help": "put all updated files into place at end"
+    },
+    {
+      "keyword": "-m",
+      "alias": "--prune-empty-dirs",
+      "help": "prune empty directory chains from file-list"
+    },
+    {
+      "keyword": "--numeric-ids",
+      "help": "don't map uid/gid values by user/group name"
+    },
+    {
+      "keyword": "--usermap",
+      "variable": "STRING",
+      "seperator": "=",
+      "help": "custom username mapping"
+    },
+    {
+      "keyword": "--groupmap",
+      "variable": "STRING",
+      "seperator": "=",
+      "help": "custom groupname mapping"
+    },
+    {
+      "keyword": "--chown",
+      "variable": "USER:GROUP",
+      "seperator": "=",
+      "help": "simple username/groupname mapping"
+    },
+    {
+      "keyword": "--timeout",
+      "variable": "SECONDS",
+      "seperator": "=",
+      "help": "set I/O timeout in seconds"
+    },
+    {
+      "keyword": "--contimeout",
+      "variable": "SECONDS",
+      "seperator": "=",
+      "help": "set daemon connection timeout in seconds"
+    },
+    {
+      "keyword": "-I",
+      "alias": "--ignore-times",
+      "help": "don't skip files that match size and time"
+    },
+    {
+      "keyword": "--size-only",
+      "help": "skip files that match in size"
+    },
+    {
+      "keyword": "--modify-window",
+      "variable": "NUM",
+      "seperator": "=",
+      "default": "0",
+      "help": "set the accuracy(in seconds) for mod-time comparisons. If you specify a negative value (and the receiver  is  at  least version 3.1.3) then nanoseconds will also be taken into account."
+    },
+    {
+      "keyword": "-T",
+      "alias": "--temp-dir",
+      "variable": "DIR",
+      "seperator": "=",
+      "type": "directory",
+      "help": "create temporary files in directory DIR"
+    },
+    {
+      "keyword": "-y",
+      "alias": "--fuzzy",
+      "help": "find similar file for basis if no dest file"
+    },
+    {
+      "keyword": "--compare-dest",
+      "variable": "DIR",
+      "seperator": "=",
+      "type": "directory",
+      "help": "also compare received files relative to DIR"
+    },
+    {
+      "keyword": "--copy-dest",
+      "variable": "DIR",
+      "seperator": "=",
+      "type": "directory",
+      "help": "... and include copies of unchanged files"
+    },
+    {
+      "keyword": "--link-dest",
+      "variable": "DIR",
+      "seperator": "=",
+      "type": "directory",
+      "help": "hardlink to files in DIR when unchanged"
+    },
+    {
+      "keyword": "-z",
+      "alias": "--compress",
+      "help": "compress file data during the transfer"
+    },
+    {
+      "keyword": "--compress-level",
+      "variable": "NUM",
+      "seperator": "=",
+      "help": "explicitly set compression level"
+    },
+    {
+      "keyword": "--skip-compress",
+      "variable": "LIST",
+      "seperator": "=",
+      "help": "skip compressing files with suffix in LIST"
+    },
+    {
+      "keyword": "-C",
+      "alias": "--cvs-exclude",
+      "help": "auto-ignore files in the same way CVS does"
+    },
+    {
+      "keyword": "-f",
+      "alias": "--filter",
+      "variable": "RULE",
+      "seperator": "=",
+      "help": "add a file-filtering RULE. See the FILTER RULES section in the manual for detailed  information."
+    },
+    {
+      "keyword": "-F",
+      "help": "same as --filter='dir-merge /.rsync-filter'repeated: --filter='- .rsync-filter'"
+    },
+    {
+      "keyword": "--exclude",
+      "variable": "PATTERN",
+      "seperator": "=",
+      "help": "exclude files matching PATTERN"
+    },
+    {
+      "keyword": "--exclude-from",
+      "variable": "FILE",
+      "seperator": "=",
+      "help": "read exclude patterns from FILE"
+    },
+    {
+      "keyword": "--include",
+      "variable": "PATTERN",
+      "seperator": "=",
+      "help": "don't exclude files matching PATTERN"
+    },
+    {
+      "keyword": "--include-from",
+      "variable": "FILE",
+      "seperator": "=",
+      "help": "read include patterns from FILE"
+    },
+    {
+      "keyword": "--files-from",
+      "variable": "FILE",
+      "seperator": "=",
+      "help": "read list of source-file names from FILE"
+    },
+    {
+      "keyword": "-0",
+      "alias": "--from0",
+      "help": "all *from/filter files are delimited by 0s"
+    },
+    {
+      "keyword": "-s",
+      "alias": "--protect-args",
+      "help": "no space-splitting; wildcard chars only"
+    },
+    {
+      "keyword": "--address",
+      "variable": "ADDRESS",
+      "seperator": "=",
+      "type": "localaddr",
+      "help": "bind address for outgoing socket to daemon"
+    },
+    {
+      "keyword": "--port",
+      "variable": "PORT",
+      "seperator": "=",
+      "help": "specify double-colon alternate port number"
+    },
+    {
+      "keyword": "--sockopts",
+      "variable": "OPTIONS",
+      "seperator": "=",
+      "help": "specify custom TCP options"
+    },
+    {
+      "keyword": "--blocking-io",
+      "help": "use blocking I/O for the remote shell"
+    },
+    {
+      "keyword": "--outbuf",
+      "variable": "N|L|B",
+      "seperator": "=",
+      "help": "set out buffering to None, Line, or Block"
+    },
+    {
+      "keyword": "--stats",
+      "help": "give some file-transfer stats"
+    },
+    {
+      "keyword": "-8",
+      "alias": "--8-bit-output",
+      "help": "leave high-bit chars unescaped in output"
+    },
+    {
+      "keyword": "-h",
+      "alias": "--human-readable",
+      "help": "output numbers in a human-readable format"
+    },
+    {
+      "keyword": "--progress",
+      "help": "show progress during transfer"
+    },
+    {
+      "keyword": "-P",
+      "help": "same as --partial --progress"
+    },
+    {
+      "keyword": "-i",
+      "alias": "--itemize-changes",
+      "help": "output a change-summary for all updates-M, --remote-option=OPTION  send OPTION to the remote side only"
+    },
+    {
+      "keyword": "--out-format",
+      "variable": "FORMAT",
+      "seperator": "=",
+      "help": "output updates using the specified FORMAT"
+    },
+    {
+      "keyword": "--log-file",
+      "variable": "FILE",
+      "seperator": "=",
+      "type": "savefile",
+      "help": "log what we're doing to the specified FILE"
+    },
+    {
+      "keyword": "--log-file-format",
+      "variable": "FMT",
+      "seperator": "=",
+      "help": "log updates using the specified FMT"
+    },
+    {
+      "keyword": "--password-file",
+      "variable": "FILE",
+      "seperator": "=",
+      "type": "file",
+      "help": "read daemon-access password from FILE"
+    },
+    {
+      "keyword": "--list-only",
+      "help": "list the files instead of copying them"
+    },
+    {
+      "keyword": "--bwlimit",
+      "variable": "RATE",
+      "seperator": "=",
+      "help": "limit socket I/O bandwidth"
+    },
+    {
+      "keyword": "--stop-at",
+      "variable": "TIME",
+      "seperator": "=",
+      "help": "Stop rsync at year-month-dayThour:minute, e.g. 2004-12-31T23:59"
+    },
+    {
+      "keyword": "--time-limit",
+      "variable": "MINS",
+      "seperator": "=",
+      "help": "Stop rsync after MINS minutes have elapsed"
+    },
+    {
+      "keyword": "--write-batch",
+      "variable": "FILE",
+      "seperator": "=",
+      "type": "savefile",
+      "help": "write a batched update to FILE--only-write-batch=FILE like --write-batch but w/o updating dest"
+    },
+    {
+      "keyword": "--read-batch",
+      "variable": "FILE",
+      "seperator": "=",
+      "type": "file",
+      "help": "read a batched update from FILE"
+    },
+    {
+      "keyword": "--protocol",
+      "variable": "NUM",
+      "seperator": "=",
+      "help": "force an older protocol version to be used"
+    },
+    {
+      "keyword": "--iconv",
+      "variable": "CONVERT_SPEC",
+      "seperator": "=",
+      "help": "request charset conversion of filenames. Run 'iconv --list' to get a list of charset names"
+    },
+    {
+      "keyword": "--checksum-seed",
+      "variable": "NUM",
+      "seperator": "=",
+      "help": "set block/file checksum seed (advanced)"
+    },
+    {
+      "keyword": "--noatime",
+      "help": "do not alter atime when opening source files"
+    },
+    {
+      "keyword": "-4",
+      "alias": "--ipv4",
+      "help": "prefer IPv4"
+    },
+    {
+      "keyword": "-6",
+      "alias": "--ipv6",
+      "help": "prefer IPv6"
+    },
+    {
+      "keyword": "--version",
+      "help": "print version number(-h) --help  show this help (see below for -h comment)"
+    },
+    {
+      "keyword": "--daemon",
+      "help": "run as an rsync daemon"
+    },
+
+    {
+      "keyword": "--config",
+      "variable": "FILE",
+      "seperator": "=",
+      "type": "file",
+      "help": "specify alternate rsyncd.conf file"
+    },
+    {
+      "keyword": "--dparam",
+      "variable": "OVERRIDE",
+      "seperator": "=",
+      "help": "override global daemon config parameter"
+    },
+    {
+      "keyword": "--no-detach",
+      "help": "do not detach from the parent"
+    },
+    {
+      "variable": "SRC...",
+      "help": "Source files or directories. Use HOST:SRC to specify remote source."
+    },
+    {
+      "variable": "DEST",
+      "help": "Destination file or directory. Use HOST:SRC to specify remote destination."
+    }
+  ]
+}
