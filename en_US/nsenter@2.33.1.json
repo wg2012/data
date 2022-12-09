@@ -1,0 +1,153 @@
+{
+  "command": "nsenter",
+  "show_version": "nsenter -V | awk '{print $NF}'",
+  "supported_versions": [
+    "2.33.1"
+  ],
+  "arguments": [
+    {
+      "keyword": "-a",
+      "alias": "--all",
+      "help": "Enter all namespaces of the target process by the default /proc/[pid]/ns/* namespace paths. The default paths to the target process namespaces may be overwritten by namespace specific options(e.g. --all --mount=[path])."
+    },
+    {
+      "keyword": "-t",
+      "alias": "--target",
+      "variable": "pid",
+      "help": "Specify a target process to get contexts from.  The paths to the contexts specified by pid are:"
+    },
+    {
+      "keyword": "-m",
+      "help": "Enter the mount namespace of the target process."
+    },
+    {
+      "keyword": "--mount",
+      "seperator": "=",
+      "variable": "file",
+      "type": "file",
+      "help": "Enter the mount namespace specified by file."
+    },
+    {
+      "keyword": "-u",
+      "help": "Enter the UTS namespace of the target process."
+    },
+    {
+      "keyword": "--uts",
+      "seperator": "=",
+      "variable": "file",
+      "type": "file",
+      "help": "Enter the UTS namespace specified by file."
+    },
+    {
+      "keyword": "-i",
+      "help": "Enter the IPC namespace of the target process."
+    },
+    {
+      "keyword": "--ipc",
+      "seperator": "=",
+      "variable": "file",
+      "type": "file",
+      "help": "Enter the IPC namespace specified by file."
+    },
+    {
+      "keyword": "-n",
+      "help": "Enter the network namespace of the target process."
+    },
+    {
+      "keyword": "--net",
+      "seperator": "=",
+      "variable": "file",
+      "type": "file",
+      "help": "Enter the network namespace specified by file."
+    },
+    {
+      "keyword": "-p",
+      "help": "Enter the PID namespace of the target process."
+    },
+    {
+      "keyword": "--pid",
+      "seperator": "=",
+      "variable": "file",
+      "type": "file",
+      "help": "Enter the PID namespace specified by file."
+    },
+    {
+      "keyword": "-U",
+      "help": "Enter the user namespace of the target process. See also the --setuidand --setgid options."
+    },
+    {
+      "keyword": "--user",
+      "seperator": "=",
+      "variable": "file",
+      "type": "file",
+      "help": "Enter the user namespace specified by file. See also the --setuidand --setgid options."
+    },
+    {
+      "keyword": "-C",
+      "help": "Enter the cgroup namespace of the target process."
+    },
+    {
+      "keyword": "--cgroup",
+      "seperator": "=",
+      "variable": "file",
+      "type": "file",
+      "help": "Enter the cgroup namespace specified by file."
+    },
+    {
+      "keyword": "-G",
+      "alias": "--setgid",
+      "variable": "gid",
+      "help": "Set the group ID which will be used in the entered namespace and drop supplementary groups.  nsenter(1) always sets GID for user namespaces, the default is 0."
+    },
+    {
+      "keyword": "-S",
+      "alias": "--setuid",
+      "variable": "uid",
+      "help": "Set the user ID which will be used in the entered namespace.  nsenter(1) always sets UID for user namespaces, the default is 0."
+    },
+    {
+      "keyword": "--preserve-credentials",
+      "help": "Don't modify UID and GID when enter user namespace. The default is to drops supplementary groups and sets GID and UID to 0."
+    },
+    {
+      "keyword": "-r",
+      "help": "Set the root directory to the root directory of the target process."
+    },
+    {
+      "keyword": "--root",
+      "seperator": "=",
+      "variable": "directory",
+      "help": "Set the root directory to the  specifieddirectory."
+    },
+    {
+      "keyword": "-w",
+      "help": "Set the working directory to the working directory of the target process."
+    },
+    {
+      "keyword": "--wd",
+      "seperator": "=",
+      "variable": "directory",
+      "help": "Set the working directory tothe specified directory."
+    },
+    {
+      "keyword": "-F",
+      "alias": "--no-fork",
+      "help": "Do not fork before exec'ing the specified program.  By default, when entering a PID namespace, nsenter calls fork before calling exec so that any children will also be in  the  newly  enteredPID namespace."
+    },
+    {
+      "keyword": "-Z",
+      "alias": "--follow-context",
+      "help": "Set  the SELinux security context used for executing a new process according to already running process specified by --target PID. (The util-linux has to be compiled with SELinux support otherwise the option is unavailable.)"
+    },
+    {
+      "keyword": "-V",
+      "alias": "--version",
+      "help": "Display version information and exit."
+    },
+    {
+      "keyword": "-h",
+      "alias": "--help",
+      "help": "Display help text and exit."
+    }
+  ]
+}
