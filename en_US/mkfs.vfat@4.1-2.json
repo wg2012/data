@@ -1,9 +1,7 @@
 {
   "command": "mkfs.vfat",
   "show_version": "echo",
-  "supported_versions": [
-    "4.1-2"
-  ],
+  "supported_versions": ["4.1-2"],
   "arguments": [
     {
       "keyword": "-a",
@@ -22,7 +20,7 @@
       "keyword": "-c",
       "help": "Check the device for bad blocks before creating the filesystem."
     },
-        {
+    {
       "keyword": "-C",
       "help": "Create the file given as DEVICE on the command line, and write the to-be-created filesystem to it.  This can be used to create the new filesystem  in a file instead of on a real device, and to avoid using dd in advance to create a file of appropriate size. With this option, the BLOCK-COUNT must be given."
     },
@@ -110,7 +108,8 @@
       "variable": "device",
       "type": "blockdev",
       "help": "The block device to format",
-      "required": true
+      "required": true,
+      "display_order": 1
     },
     {
       "variable": "BLOCK-COUNT",

@@ -158,7 +158,8 @@
         "variable": "device",
         "type": "blockdev",
         "help": "The block device to format",
-        "required": true
+        "required": true,
+        "display_order": 1
     }
   ]
 }

@@ -1,9 +1,7 @@
 {
   "command": "rsync",
   "show_version": "rsync --version | awk '{print $3}'",
-  "supported_versions": [
-    "3.1.3"
-  ],
+  "supported_versions": ["3.1.3"],
   "arguments": [
     {
       "keyword": "-v",
@@ -659,7 +657,6 @@
       "keyword": "--daemon",
       "help": "run as an rsync daemon"
     },
-
     {
       "keyword": "--config",
       "variable": "FILE",
@@ -679,10 +676,12 @@
     },
     {
       "variable": "SRC...",
+      "display_order": 1,
       "help": "Source files or directories. Use HOST:SRC to specify remote source."
     },
     {
       "variable": "DEST",
+      "display_order": 2,
       "help": "Destination file or directory. Use HOST:SRC to specify remote destination."
     }
   ]

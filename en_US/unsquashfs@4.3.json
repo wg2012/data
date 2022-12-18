@@ -1,9 +1,7 @@
 {
   "command": "unsquashfs",
   "show_version": "unsquashfs -version | head -1 | awk '{print $3}'",
-  "supported_versions": [
-    "4.3"
-  ],
+  "supported_versions": ["4.3"],
   "arguments": [
     {
       "keyword": "-v",
@@ -99,10 +97,12 @@
       "variable": "FILESYSTEM",
       "type": "file",
       "required": true,
+      "display_order": 1,
       "help": "The squashfs file to use"
     },
     {
       "variable": "DIR_OR_FILE_TO_EXTRACT",
+      "display_order": 2,
       "help": "Directories or files to extract"
     }
   ]

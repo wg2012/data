@@ -1,9 +1,7 @@
 {
   "command": "unzip",
   "show_version": "unzip -v | awk '{print $2}'",
-  "supported_versions": [
-    "6.00"
-  ],
+  "supported_versions": ["6.00"],
   "arguments": [
     {
       "keyword": "-Z",
@@ -137,7 +135,7 @@
     {
       "keyword": "-$",
       "help": "restore the volume label if the extraction medium is removable (e.g., a diskette).  Doubling the option (-$$) allows fixed media (hard disks) to be labelled  as  well. By default, volume labels are ignored."
-    }, 
+    },
     {
       "keyword": "-^",
       "help": "allow control characters in names of extracted ZIP archive entries. "
@@ -145,22 +143,26 @@
     {
       "variable": "file.zip",
       "type": "file",
+      "display_order": 1,
       "help": "Path of the ZIP archive. Wildcards are allowed.",
       "required": true
     },
     {
       "variable": "members",
+      "display_order": 2,
       "help": "An optional list of archive members to be processed, separated by spaces. Regular expressions (wildcards) may be used to match multiple members."
     },
     {
       "keyword": "-x",
       "variable": "xfile",
+      "display_order": 3,
       "help": "An optional list of archive members to be excluded from processing. Wildcards are allowed. "
     },
     {
       "keyword": "-d",
       "variable": "exdir",
       "type": "directory",
+      "display_order": 4,
       "help": "An optional directory to which to extract files. By default, all files and subdirectories are recreated in the current directory."
     }
   ]
