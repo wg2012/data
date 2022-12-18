@@ -1,0 +1,476 @@
+{
+  "command": "zip",
+  "show_version": "zip -h | awk '/^Zip/{print $2}'",
+  "supported_versions": [
+    "3.0"
+  ],
+  "status": "draft",
+  "arguments": [
+    {
+      "keyword": "-a",
+      "alias": "--ascii",
+      "help": "[Systems using EBCDIC] Translate file to ASCII format."
+    },
+    {
+      "keyword": "-A",
+      "alias": "--adjust-sfx",
+      "help": "Adjust self-extracting executable archive.  A self-extracting executable archive is created by prepending the SFX stub to an existing archive. The -A option tells zip to adjust the entry off\u2010sets stored in the archive to take into account this \"preamble\" data."
+    },
+    {
+      "keyword": "-AC",
+      "alias": "--archive-clear",
+      "help": "[WIN32]\tOnce  archive  is created (and tested if -T is used, which is recommended), clear the archive bits of files processed.\tWARNING: Once the bits are cleared they are cleared.  You maywant to use the -sf show files option to store the list of files processed in case the archive operation must be repeated.  Also consider using the -MM must match option.  Be  sure  to\tcheckout -DF as a possibly better way to do incremental backups."
+    },
+    {
+      "keyword": "-AS",
+      "alias": "--archive-set",
+      "help": "[WIN32]  Only include files that have the archive bit set.  Directories are not stored when -AS is used, though by default the paths of entries, including directories, are stored as usual andcan be used by most unzips to recreate directories."
+    },
+    {
+      "keyword": "-b",
+      "alias": "--temp-path",
+      "variable": "path",
+      "type": "directory",
+      "help": "Use the specified path for the temporary zip archive. For example:"
+    },
+    {
+      "keyword": "-c",
+      "alias": "--entry-comments",
+      "help": "Add one-line comments for each file.  File operations (adding, updating) are done first, and the user is then prompted for a one-line comment for each file.  Enter the comment followed by re\u2010turn, or just return for no comment."
+    },
+    {
+      "keyword": "-d",
+      "alias": "--delete",
+      "help": "Remove (delete) entries from a zip archive.  For example:"
+    },
+    {
+      "keyword": "-db",
+      "alias": "--display-bytes",
+      "help": "Display running byte counts showing the bytes zipped and the bytes to go."
+    },
+    {
+      "keyword": "-dc",
+      "alias": "--display-counts",
+      "help": "Display running count of entries zipped and entries to go."
+    },
+    {
+      "keyword": "-dd",
+      "alias": "--display-dots",
+      "help": "Display dots while each entry is zipped (except on ports that have their own progress indicator).  See -ds below for setting dot size.  The default is a dot every 10 MB\tof  input  file  pro\u2010cessed.  The -v option also displays dots (previously at a much higher rate than this but now -v also defaults to 10 MB) and this rate is also controlled by -ds."
+    },
+    {
+      "keyword": "-df",
+      "alias": "--datafork",
+      "help": "[MacOS] Include only data-fork of files zipped into the archive.\tGood for exporting files to foreign operating-systems.\tResource-forks will be ignored at all."
+    },
+    {
+      "keyword": "-dg",
+      "alias": "--display-globaldots",
+      "help": "Display progress dots for the archive instead of for each file.  The command"
+    },
+    {
+      "keyword": "-ds",
+      "alias": "--dot-size",
+      "variable": "size",
+      "help": "Set  amount of input file processed for each dot displayed.  See -dd to enable displaying dots.  Setting this option implies -dd.  Size is in the format nm where n is a number and m is a mul\u2010tiplier.\tCurrently m can be k (KB), m (MB), g (GB), or t (TB), so if n is 100 and m is k, size would be 100k which is 100 KB.  The default is 10 MB."
+    },
+    {
+      "keyword": "-du",
+      "alias": "--display-usize",
+      "help": "Display the uncompressed size of each entry."
+    },
+    {
+      "keyword": "-dv",
+      "alias": "--display-volume",
+      "help": "Display the volume (disk) number each entry is being read from, if reading an existing archive, and being written to."
+    },
+    {
+      "keyword": "-D",
+      "alias": "--no-dir-entries",
+      "help": "Do  not create entries in the zip archive for directories.  Directory entries are created by default so that their attributes can be saved in the zip archive.  The environment variable ZIPOPTcan be used to change the default options. For example under Unix with sh:"
+    },
+    {
+      "keyword": "-DF",
+      "alias": "--difference-archive",
+      "help": "Create an archive that contains all new and changed files since the original archive was created.  For this to work, the input file list and current directory must be the same as  during  theoriginal zip operation."
+    },
+    {
+      "keyword": "-e",
+      "alias": "--encrypt",
+      "help": "Encrypt the contents of the zip archive using a password which is entered on the terminal in response to a prompt (this will not be echoed; if standard error is not a tty, zip will exit  withan error).  The password prompt is repeated to save the user from typing errors."
+    },
+    {
+      "keyword": "-f",
+      "alias": "--freshen",
+      "help": "Replace  (freshen) an existing entry in the zip archive only if it has been modified more recently than the version already in the zip archive; unlike the update option (-u) this will not addfiles that are not already in the zip archive.  For example:"
+    },
+    {
+      "keyword": "-F",
+      "alias": "--fix",
+      "help": "Fix the zip archive. The -F option can be used if some portions of the archive are missing, but requires a reasonably intact central directory.  The input archive is scanned as usual, but zipwill ignore some problems.  The resulting archive should be valid, but any inconsistent entries will be left out."
+    },
+    {
+      "keyword": "-FF",
+      "alias": "--fixfix",
+      "help": "When  doubled  as  in -FF, the archive is scanned from the beginning and zip scans for special signatures to identify the limits between the archive members. If the archive is too damaged or the end has been truncated, you must use -FF."
+    },
+    {
+      "keyword": "-FI",
+      "alias": "--fifo",
+      "help": "--fifo [Unix]  Normally zip skips reading any FIFOs (named pipes) encountered, as zip can hang if the FIFO is not being fed.  This option tells zip to read the contents of any FIFO it finds."
+    },
+    {
+      "keyword": "-FS",
+      "alias": "--filesync",
+      "help": "Synchronize the contents of an archive with the files on the OS.\tNormally when an archive is updated, new files are added and changed files are updated but files that no longer exist on  theOS  are  not deleted from the archive.  This option enables a new mode that checks entries in the archive against the file system.  If the file time and file size of the entry matches that ofthe OS file, the entry is copied from the old archive instead of being read from the file system and compressed.\tIf the OS file has changed, the entry is read and compressed  as  usual.   Ifthe  entry in the archive does not match a file on the OS, the entry is deleted.\tEnabling this option should create archives that are the same as new archives, but since existing entries arecopied instead of compressed, updating an existing archive with -FS can be much faster than creating a new archive.  Also consider using -u for updating an archive."
+    },
+    {
+      "keyword": "-g",
+      "alias": "--grow",
+      "help": "Grow  (append  to)  the specified zip archive, instead of creating a new one. If this operation fails, zip attempts to restore the archive to its original state. If the restoration fails, thearchive might become corrupted. This option is ignored when there's no existing archive or when at least one archive member must be updated or deleted."
+    },
+    {
+      "keyword": "-h",
+      "alias": "--help",
+      "help": "Display the zip help information (this also appears if zip is run with no arguments)."
+    },
+    {
+      "keyword": "-h2",
+      "alias": "--more-help",
+      "help": "Display extended help including more on command line format, pattern matching, and more obscure options."
+    },
+    {
+      "keyword": "-i",
+      "alias": "--include",
+      "variable": "files",
+      "help": "Include only the specified files, as in:"
+    },
+    {
+      "keyword": "-ic",
+      "alias": "--ignore-case",
+      "help": "[VMS,  WIN32]  Ignore case when matching archive entries.  This option is only available on systems where the case of files is ignored.  On systems with case-insensitive file systems, case isnormally ignored when matching files on the file system but is not ignored for -f (freshen), -d (delete), -U (copy), and similar modes when matching against archive entries (currently -f  ig\u2010nores  case  on VMS) because archive entries can be from systems where case does matter and names that are the same except for case can exist in an archive.  The -ic option makes all matchingcase insensitive.  This can result in multiple archive entries matching a command line pattern."
+    },
+    {
+      "keyword": "-j",
+      "alias": "--junk-paths",
+      "help": "Store just the name of a saved file (junk the path), and do not store directory names. By default, zip will store the full path (relative to the current directory)."
+    },
+    {
+      "keyword": "-jj",
+      "alias": "--absolute-path",
+      "help": "[MacOS] record Fullpath (+ Volname). The complete path including volume will be stored. By default the relative path will be stored."
+    },
+    {
+      "keyword": "-J",
+      "alias": "--junk-sfx",
+      "help": "Strip any prepended data (e.g. a SFX stub) from the archive."
+    },
+    {
+      "keyword": "-k",
+      "alias": "--DOS-names",
+      "help": "Attempt to convert the names and paths to conform to MSDOS, store only the MSDOS attribute (just the user write attribute from Unix), and mark the entry as made under MSDOS  (even  though  itwas not); for compatibility with PKUNZIP under MSDOS which cannot handle certain names such as those with two dots."
+    },
+    {
+      "keyword": "-l",
+      "alias": "--to-crlf",
+      "help": "Translate  the  Unix end-of-line character LF into the MSDOS convention CR LF. This option should not be used on binary files.  This option can be used on Unix if the zip file is intended forPKUNZIP under MSDOS. If the input files already contain CR LF, this option adds an extra CR. This is to ensure that unzip -a on Unix will get back an exact copy of the original file, to  undothe effect of zip -l.  See -ll for how binary files are handled."
+    },
+    {
+      "keyword": "-la",
+      "alias": "--log-append",
+      "help": "Append to existing logfile.  Default is to overwrite."
+    },
+    {
+      "keyword": "-lf",
+      "alias": "--logfile-path",
+      "variable": "logfilepath",
+      "type": "savefile",
+      "help": "Open  a  logfile\tat the given path.  By default any existing file at that location is overwritten, but the -la option will result in an existing file being opened and the new log informationappended to any existing information.  Only warnings and errors are written to the log unless the -li option is also given, then all information messages are also written to the log."
+    },
+    {
+      "keyword": "-li",
+      "alias": "--log-info",
+      "help": "Include information messages, such as file names being zipped, in the log.  The default is to only include the command line, any warnings and errors, and the final status."
+    },
+    {
+      "keyword": "-ll",
+      "alias": "--from-crlf",
+      "help": "Translate the MSDOS end-of-line CR LF into Unix LF.  This option should not be used on binary files.  This option can be used on MSDOS if the zip file is intended for unzip  under  Unix.   Ifthe  file  is  converted\tand the file is later determined to be binary a warning is issued and the file is probably corrupted.  In this release if -ll detects binary in the first buffer readfrom a file, zip now issues a warning and skips line end conversion on the file.\tThis check seems to catch all binary files tested, but the original check remains and if a converted file  islater  determined  to  be binary that warning is still issued.  A new algorithm is now being used for binary detection that should allow line end conversion of text files in UTF-8 and similarencodings."
+    },
+    {
+      "keyword": "-L",
+      "alias": "--license",
+      "help": "Display the zip license."
+    },
+    {
+      "keyword": "-m",
+      "alias": "--move",
+      "help": "Move the specified files into the zip archive; actually, this deletes the target directories/files after making the specified zip archive. If a directory becomes empty after  removal  of  thefiles,  the  directory is also removed. No deletions are done until zip has created the archive without error.  This is useful for conserving disk space, but is potentially dangerous so it isrecommended to use it in combination with -T to test the archive before removing all input files."
+    },
+    {
+      "keyword": "-MM",
+      "alias": "--must-match",
+      "help": "All input patterns must match at least one file and all input files found must be readable.  Normally when an input pattern does not match a file the \"name not matched\" warning is issued  andwhen an input file has been found but later is missing or not readable a missing or not readable warning is issued.  In either case zip continues creating the archive, with missing or unread\u2010able new files being skipped and files already in the archive remaining unchanged.  After the archive is created, if any files were not readable zip returns the OPEN error code\t(18  on  mostsystems)\tinstead  of  the normal success return (0 on most systems).  With -MM set, zip exits as soon as an input pattern is not matched (whenever the \"name not matched\" warning would be is\u2010sued) or when an input file is not readable.  In either case zip exits with an OPEN error and no archive is created."
+    },
+    {
+      "keyword": "-n",
+      "alias": "--suffixes",
+      "variable": "suffixes",
+      "help": "Do not attempt to compress files named with the given suffixes.  Such files are simply stored (0% compression) in the output zip file, so that zip doesn't waste its time  trying  to  compressthem.  The suffixes are separated by either colons or semicolons.  For example:"
+    },
+    {
+      "keyword": "-nw",
+      "alias": "--no-wild",
+      "help": "Do not perform internal wildcard processing (shell processing of wildcards is still done by the shell unless the arguments are escaped).\tUseful if a list of paths is being read and no\twild\u2010card substitution is desired."
+    },
+    {
+      "keyword": "-N",
+      "alias": "--notes",
+      "help": "[Amiga,  MacOS] Save Amiga or MacOS filenotes as zipfile comments. They can be restored by using the -N option of unzip. If -c is used also, you are prompted for comments only for those filesthat do not have filenotes."
+    },
+    {
+      "keyword": "-o",
+      "alias": "--latest-time",
+      "help": "Set the \"last modified\" time of the zip archive to the latest (oldest) \"last modified\" time found among the entries in the zip archive.  This can be used without any other operations, if  de\u2010sired.  For example:"
+    },
+    {
+      "keyword": "-O",
+      "alias": "--output-file",
+      "variable": "output-file",
+      "type": "savefile",
+      "help": "Process  the  archive  changes as usual, but instead of updating the existing archive, output the new archive to output-file.  Useful for updating an archive without changing the existing ar\u2010chive and the input archive must be a different file than the output archive."
+    },
+    {
+      "keyword": "-p",
+      "alias": "--paths",
+      "help": "Include relative file paths as part of the names of files stored in the archive.\tThis is the default.  The -j option junks the paths and just stores the names of the files."
+    },
+    {
+      "keyword": "-P",
+      "alias": "--password",
+      "variable": "password",
+      "help": "Use  password  to  encrypt zipfile entries (if any).  THIS IS INSECURE!  Many multi-user operating systems provide ways for any user to see the current command line of any other user; even onstand-alone systems there is always the threat of over-the-shoulder peeking.  Storing the plaintext password as part of a command line in an automated script is even worse.   Whenever  possi\u2010ble,  use  the  non-echoing,  interactive  prompt to enter passwords.  (And where security is truly important, use strong encryption such as Pretty Good Privacy instead of the relatively weakstandard encryption provided by zipfile utilities.)"
+    },
+    {
+      "keyword": "-q",
+      "alias": "--quiet",
+      "help": "Quiet mode; eliminate informational messages and comment prompts.  (Useful, for example, in shell scripts and background tasks)."
+    },
+    {
+      "keyword": "-r",
+      "alias": "--recurse-paths",
+      "help": "Travel the directory structure recursively; for example:"
+    },
+    {
+      "keyword": "-R",
+      "alias": "--recurse-patterns",
+      "help": "Travel the directory structure recursively starting at the current directory; for example:"
+    },
+    {
+      "keyword": "-RE",
+      "alias": "--regex",
+      "help": "[WIN32]  Before zip 3.0, regular expression list matching was enabled by default on Windows platforms.  Because of confusion resulting from the need to escape \"[\" and \"]\" in names, it is  nowoff by default for Windows so \"[\" and \"]\" are just normal characters in names.  This option enables [] matching again."
+    },
+    {
+      "keyword": "-s",
+      "alias": "--split-size",
+      "variable": "splitsize",
+      "help": "Enable  creating a split archive and set the split size.\tA split archive is an archive that could be split over many files.  As the archive is created, if the size of the archive reaches thespecified split size, that split is closed and the next split opened.  In general all splits but the last will be the split size and the last will be whatever is left.  If the entire  archiveis smaller than the split size a single-file archive is created."
+    },
+    {
+      "keyword": "-sb",
+      "alias": "--split-bell",
+      "help": "If splitting and using split pause mode, ring the bell when zip pauses for each split destination."
+    },
+    {
+      "keyword": "-sc",
+      "alias": "--show-command",
+      "help": "Show  the  command line starting zip as processed and exit.  The new command parser permutes the arguments, putting all options and any values associated with them before any non-option argu\u2010ments.  This allows an option to appear anywhere in the command line as long as any values that go with the option go with it.  This option displays the command line as zip sees it, includingany arguments from the environment such as from the ZIPOPT variable.  Where allowed, options later in the command line can override options earlier in the command line."
+    },
+    {
+      "keyword": "-sf",
+      "alias": "--show-files",
+      "help": "Show the files that would be operated on, then exit.  For instance, if creating a new archive, this will list the files that would be added.  If the option is negated, -sf-, output only to anopen log file.  Screen display is not recommended for large lists."
+    },
+    {
+      "keyword": "-so",
+      "alias": "--show-options",
+      "help": "Show all available options supported by zip as compiled on the current system.  As this command reads the option table, it should include all options.  Each line includes the short option (ifdefined),  the  long option (if defined), the format of any value that goes with the option, if the option can be negated, and a small description.  The value format can be no value, requiredvalue, optional value, single character value, number value, or a list of values.  The output of this option is not intended to show how to use any option  but  only  show  what  options  areavailable."
+    },
+    {
+      "keyword": "-sp",
+      "alias": "--split-pause",
+      "help": "If splitting is enabled with -s, enable split pause mode.  This creates split archives as -s does, but stream writing is used so each split can be closed as soon as it is written and zip willpause between each split to allow changing split destination or media."
+    },
+    {
+      "keyword": "-su",
+      "alias": "--show-unicode",
+      "help": "As -sf, but also show Unicode version of the path if exists."
+    },
+    {
+      "keyword": "-sU",
+      "alias": "--show-just-unicode",
+      "help": "As -sf, but only show Unicode version of the path if exists, otherwise show the standard version of the path."
+    },
+    {
+      "keyword": "-sv",
+      "alias": "--split-verbose",
+      "help": "Enable various verbose messages while splitting, showing how the splitting is being done."
+    },
+    {
+      "keyword": "-S",
+      "alias": "--system-hidden",
+      "help": "[MSDOS, OS/2, WIN32 and ATARI] Include system and hidden files.[MacOS] Includes finder invisible files, which are ignored otherwise."
+    },
+    {
+      "keyword": "-t",
+      "alias": "--from-date",
+      "variable": "mmddyyyy",
+      "help": "Do  not operate on files modified prior to the specified date, where mm is the month (00-12), dd is the day of the month (01-31), and yyyy is the year.  The ISO 8601 date format yyyy-mm-dd isalso accepted.  For example:"
+    },
+    {
+      "keyword": "-tt",
+      "alias": "--before-date",
+      "variable": "mmddyyyy",
+      "help": "Do not operate on files modified after or at the specified date, where mm is the month (00-12), dd is the day of the month (01-31), and yyyy is the year.  The ISO 8601 date format  yyyy-mm-ddis also accepted.  For example:"
+    },
+    {
+      "keyword": "-T",
+      "alias": "--test",
+      "help": "Test the integrity of the new zip file. If the check fails, the old zip file is unchanged and (with the -m option) no input files are removed."
+    },
+    {
+      "keyword": "-TT",
+      "alias": "--unzip-command",
+      "variable": "cmd",
+      "help": "Use  command  cmd  instead of 'unzip -tqq' to test an archive when the -T option is used.  On Unix, to use a copy of unzip in the current directory instead of the standard system unzip, coulduse:"
+    },
+    {
+      "keyword": "-u",
+      "alias": "--update",
+      "help": "Replace (update) an existing entry in the zip archive only if it has been modified more recently than the version already in the zip archive.  For example:"
+    },
+    {
+      "keyword": "-U",
+      "alias": "--copy-entries",
+      "help": "Copy  entries  from one archive to another.  Requires the --out option to specify a different output file than the input archive.  Copy mode is the reverse of -d delete.  When delete is beingused with --out, the selected entries are deleted from the archive and all other entries are copied to the new archive, while copy mode selects the files to include in the new  archive.   Un\u2010like -u update, input patterns on the command line are matched against archive entries only and not the file system files.  For instance,"
+    },
+    {
+      "keyword": "-UN",
+      "alias": "--unicode",
+      "variable": "v",
+      "help": "Determine what zip should do with Unicode file names.  zip 3.0, in addition to the standard file path, now includes the UTF-8 translation of the path if the entry path is not  entirely\t7-bit"
+    },
+    {
+      "keyword": "-v",
+      "alias": "--verbose",
+      "help": "Verbose mode or print diagnostic version info."
+    },
+    {
+      "keyword": "-ws",
+      "alias": "--wild-stop-dirs",
+      "help": "Wildcards match only at a directory level.  Normally zip handles paths as strings and given the paths"
+    },
+    {
+      "keyword": "-x",
+      "alias": "--exclude",
+      "variable": "files",
+      "help": "Explicitly exclude the specified files, as in:"
+    },
+    {
+      "keyword": "-X",
+      "alias": "--no-extra",
+      "help": "Do  not save extra file attributes (Extended Attributes on OS/2, uid/gid and file times on Unix).  The zip format uses extra fields to include additional information for each entry.  Some ex\u2010tra fields are specific to particular systems while others are applicable to all systems.  Normally when zip reads entries from an existing archive, it reads the extra fields it knows, stripsthe  rest, and adds the extra fields applicable to that system.  With -X, zip strips all old fields and only includes the Unicode and Zip64 extra fields (currently these two extra fields can\u2010not be disabled)."
+    },
+    {
+      "keyword": "-y",
+      "alias": "--symlinks",
+      "help": "For UNIX and VMS (V8.3 and later), store symbolic links as such in the zip archive, instead of compressing and storing the file referred to by the link.\tThis can  avoid  multiple  copies  offiles being included in the archive as zip recurses the directory trees and accesses files directly and by links."
+    },
+    {
+      "keyword": "-z",
+      "alias": "--archive-comment",
+      "help": "Prompt  for  a  multi-line  comment for the entire zip archive.  The comment is ended by a line containing just a period, or an end of file condition (^D on Unix, ^Z on MSDOS, OS/2, and VMS).The comment can be taken from a file:"
+    },
+    {
+      "keyword": "-Z",
+      "alias": "--compression-method",
+      "variable": "cm",
+      "choices": [
+        "store",
+        "deflate",
+        "bzip2"
+      ],
+      "help": "Set the default compression method.  Currently the main methods supported by zip are store and deflate.  Compression method can be set to:"
+    },
+    {
+      "keyword": "-0",
+      "help": "compression level 0 (no compression)"
+    },
+    {
+      "keyword": "-1",
+      "help": "compression level 1"
+    },
+    {
+      "keyword": "-2",
+      "help": "compression level 2"
+    },
+    {
+      "keyword": "-3",
+      "help": "compression level 3"
+    },
+    {
+      "keyword": "-4",
+      "help": "compression level 4"
+    },
+    {
+      "keyword": "-5",
+      "help": "compression level 5"
+    },
+    {
+      "keyword": "-6",
+      "help": "compression level 6 (default)"
+    },
+    {
+      "keyword": "-7",
+      "help": "compression level 7"
+    },
+    {
+      "keyword": "-8",
+      "help": "compression level 8"
+    },
+    {
+      "keyword": "-9",
+      "help": "compression level 9 (optimal compression)"
+    },
+    {
+      "keyword": "-!",
+      "alias": "--use-privileges",
+      "help": "[WIN32] Use privileges (if granted) to obtain all aspects of WinNT security."
+    },
+    {
+      "keyword": "-@",
+      "alias": "--names-stdin",
+      "help": "Take the list of input files from standard input. Only one filename per line."
+    },
+    {
+      "keyword": "-$",
+      "alias": "--volume-label",
+      "help": "[MSDOS,  OS/2, WIN32] Include the volume label for the drive holding the first file to be compressed.  If you want to include only the volume label or to force a specific drive, use the drivename as first file name, as in:"
+    },
+    {
+      "variable": "zipfile",
+      "type": "savefile",
+      "help": "Path of the ZIP archive to create",
+      "required": true,
+      "display_order": 1
+    },
+    {
+      "variable": "file...",
+      "type": "file",
+      "repeatable": true,
+      "help": "Files to archive.",
+      "display_order": 2
+    }
+  ]
+}
