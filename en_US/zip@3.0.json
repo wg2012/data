@@ -461,6 +461,7 @@
     {
       "variable": "zipfile",
       "type": "savefile",
+      "file_extensions": [".zip"],
       "help": "Path of the ZIP archive to create",
       "required": true,
       "display_order": 1

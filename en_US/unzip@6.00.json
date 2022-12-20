@@ -143,6 +143,7 @@
     {
       "variable": "file.zip",
       "type": "file",
+      "file_extensions": [".zip"],
       "display_order": 1,
       "help": "Path of the ZIP archive. Wildcards are allowed.",
       "required": true
