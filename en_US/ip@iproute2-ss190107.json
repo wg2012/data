@@ -240,18 +240,56 @@
           "keyword": "port_guid",
           "variable": "eui64"
         },
+
         {
-          "keyword": "xdp off"
-        },
-        {
-          "keyword": "xdp object",
-          "variable": "FILE",
-          "type": "file"
-        },
-        {
-          "keyword": "xdp pinned",
-          "variable": "FILE",
-          "type": "file"
+          "args": [
+            {
+              "one_of": [
+                {
+                  "keyword": "xdp"
+                },
+                {
+                  "keyword": "xdpgeneric"
+                },
+                {
+                  "keyword": "xdpdrv"
+                },
+                {
+                  "keyword": "xdpoffload"
+                }
+              ],
+              "required": true
+            },
+            {
+              "one_of": [
+                {
+                  "keyword": "off"
+                },
+                {
+                  "args": [
+                    {
+                      "keyword": "object",
+                      "variable": "FILE",
+                      "type": "file"
+                    },
+                    {
+                      "keyword": "section",
+                      "variable": "NAME"
+                    },
+                    {
+                      "keyword": "verbose"
+                    }
+                  ]
+                },
+                {
+                  "keyword": "pinned",
+                  "variable": "FILE",
+                  "type": "file"
+                }
+              ],
+              "required": true
+            }
+          ]
         },
         {
           "keyword": "master",
