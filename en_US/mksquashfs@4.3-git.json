@@ -22,187 +22,187 @@
       "keyword": "-b",
       "variable": "BLOCK_SIZE",
       "help": "set data block to BLOCK_SIZE. Default 131072 bytes.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-no-exports",
       "help": "don't make the filesystem exportable via NFS.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-no-sparse",
       "help": "don't detect sparse files.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-no-xattrs",
       "help": "don't store extended attributes.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-xattrs",
       "help": "store extended attributes (default).",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-noI",
       "help": "do not compress inode table.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-noD",
       "help": "do not compress data blocks.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-noF",
       "help": "do not compress fragment blocks.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-noX",
       "help": "do not compress extended attributes.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-no-fragments",
       "help": "do not use fragments.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-always-use-fragments",
       "help": "use fragment blocks for files larger than block size.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-no-duplicates",
       "help": "do not perform duplicate checking.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-all-root",
       "help": "make all files owned by root.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-force-uid",
       "variable": "uid",
       "help": "set all file uids to uid.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-force-gid",
       "variable": "gid",
       "help": "set all file gids to gid.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-nopad",
       "help": "do not pad filesystem to a multiple of 4K.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-keep-as-directory",
       "help": "if one source directory is specified, create a root directory containing that directory, rather than the contents of the directory.",
-      "section": "build"
+      "group": "build"
     },
     {
       "keyword": "-p",
       "variable": "PSEUDO_DEFINITION",
       "help": "Add pseudo file definition.",
-      "section": "filter"
+      "group": "filter"
     },
     {
       "keyword": "-pf",
       "variable": "PSEUDO_FILE",
       "type": "file",
       "help": "Add list of pseudo file definitions.",
-      "section": "filter"
+      "group": "filter"
     },
     {
       "keyword": "-sort",
       "variable": "SORT_FILE",
       "type": "file",
       "help": "sort files according to priorities in SORT_FILE. One file or dir with priority per line. Priority -32768 to 32767, default priority 0.",
-      "section": "filter"
+      "group": "filter"
     },
     {
       "keyword": "-ef",
       "variable": "EXCLUDE_FILE",
       "type": "file",
       "help": "list of exclude dirs/files. One per line.",
-      "section": "filter"
+      "group": "filter"
     },
     {
       "keyword": "-wildcards",
       "help": "Allow extended shell wildcards (globbing) to be used in exclude dirs/files",
-      "section": "filter"
+      "group": "filter"
     },
     {
       "keyword": "-regex",
       "help": "Allow POSIX regular expressions to be used in exclude dirs/files.",
-      "section": "filter"
+      "group": "filter"
     },
     {
       "keyword": "-noappend",
       "help": "do not append to existing filesystem.",
-      "section": "append"
+      "group": "append"
     },
     {
       "keyword": "-root-becomes",
       "variable": "NAME",
       "help": "when appending source files/directories, make the original root become a subdirectory in the new root called NAME, rather than adding the new source items to the original root.",
-      "section": "append"
+      "group": "append"
     },
     {
       "keyword": "-version",
       "help": "print version, licence and copyright message.",
-      "section": "runtime"
+      "group": "runtime"
     },
     {
       "keyword": "-recover",
       "variable": "NAME",
       "help": "recover filesystem data using recovery file NAME.",
-      "section": "runtime"
+      "group": "runtime"
     },
     {
       "keyword": "-no-recovery",
       "help": "don't generate a recovery file.",
-      "section": "runtime"
+      "group": "runtime"
     },
     {
       "keyword": "-info",
       "help": "print files written to filesystem.",
-      "section": "runtime"
+      "group": "runtime"
     },
     {
       "keyword": "-no-progress",
       "help": "don't display the progress bar.",
-      "section": "runtime"
+      "group": "runtime"
     },
     {
       "keyword": "-processors",
       "variable": "NUMBER",
       "help": "Use NUMBER processors. By default will use number of processors available.",
-      "section": "runtime"
+      "group": "runtime"
     },
     {
       "keyword": "-read-queue",
       "variable": "SIZE",
       "help": "Set input queue to SIZE Mbytes. Default 64 Mbytes.",
-      "section": "runtime"
+      "group": "runtime"
     },
     {
       "keyword": "-write-queue",
       "variable": "SIZE",
       "help": "Set output queue to SIZE Mbytes. Default 512 Mbytes.",
-      "section": "runtime"
+      "group": "runtime"
     },
     {
       "keyword": "-fragment-queue",
       "variable": "SIZE",
       "help": "Set fragment queue to SIZE Mbytes. Default 64 Mbytes.",
-      "section": "runtime"
+      "group": "runtime"
     },
     {
       "keyword": "-comp",
@@ -214,44 +214,44 @@
         "xz"
       ],
       "default": "gzip",
-      "section": "compression"
+      "group": "compression"
     },
     {
       "keyword": "-Xbcj",
       "variable": "filter1,filter2,...,filterN",
       "help": "Compress using filter1,filter2,...,filterN in turn (in addition to no filter), and choose the best compression. Available filters: x86, arm, armthumb, powerpc, sparc, ia64.",
-      "section": "compression"
+      "group": "compression"
     },
     {
       "keyword": "-Xdict-size",
       "variable": "DICT_SIZE",
       "help": "Use DICT_SIZE as the XZ dictionary size. The dictionary size can be specified as a percentage of the block size, or as an absolute value. The dictionary size must be less than or equal to the block size and 8192 bytes or larger. It must also be storable in the xz header as either 2^n or as 2^n+2^(n+1). Example dict-sizes are 75%, 50%, 37.5%, 25%, or 32K, 16K, 8K etc.",
-      "section": "compression"
+      "group": "compression"
     },
     {
       "keyword": "-root-owned",
       "help": "alternative name for -all-root.",
-      "section": "misc"
+      "group": "misc"
     },
     {
       "keyword": "-noInodeCompression",
       "help": "alternative name for -noI.",
-      "section": "misc"
+      "group": "misc"
     },
     {
       "keyword": "-noDataCompression",
       "help": "alternative name for -noD.",
-      "section": "misc"
+      "group": "misc"
     },
     {
       "keyword": "-noFragmentCompression",
       "help": "alternative name for -noF.",
-      "section": "misc"
+      "group": "misc"
     },
     {
       "keyword": "-noXattrCompression",
       "help": "alternative name for -noX.",
-      "section": "misc"
+      "group": "misc"
     }
   ]
 }
