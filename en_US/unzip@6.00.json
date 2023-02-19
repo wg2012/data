@@ -100,6 +100,17 @@
       "help": "never overwrite existing files.  If a file already exists, skip the extraction of that file without prompting.  By default unzip queries before extracting any file that\talready  exists;  theuser may choose to overwrite only the current file, overwrite all files, skip extraction of the current file, skip extraction of all existing files, or rename the current file."
     },
     {
+      "keyword": "-O",
+      "variable": "CHARSET",
+      "choices": ["CP936","GBK","GB18030"],
+      "help": "specify a character encoding for DOS, Windows and OS/2 archives"
+    },
+    {
+      "keyword": "-I",
+      "variable": "CHARSET",
+      "help": "specify a character encoding for UNIX and other archives"
+    },
+    {
       "keyword": "-o",
       "help": "overwrite existing files without prompting.  This is a dangerous option, so use it with care.  (It is often used with -f, however, and is the only way to overwrite directory EAs under OS/2.)"
     },
