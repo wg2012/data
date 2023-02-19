@@ -242,7 +242,7 @@
         },
 
         {
-          "args": [
+          "arguments": [
             {
               "one_of": [
                 {
@@ -266,7 +266,7 @@
                   "keyword": "off"
                 },
                 {
-                  "args": [
+                  "arguments": [
                     {
                       "keyword": "object",
                       "variable": "FILE",
