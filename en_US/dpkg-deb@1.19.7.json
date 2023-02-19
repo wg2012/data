@@ -197,7 +197,7 @@
       "keyword": "--deb-format",
       "variable": "format",
       "seperator": "=",
-      "choices": ["2.0", "0.939000"]
+      "choices": ["2.0", "0.939000"],
       "group": "build",
       "help": "Set the archive format version used when building (since dpkg 1.17.0).  Allowed values are 2.0 for the new format, and 0.939000 for the old one (default is 2.0)."
     },
