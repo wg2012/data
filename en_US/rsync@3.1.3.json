@@ -53,14 +53,14 @@
     {
       "keyword": "--backup-dir",
       "variable": "DIR",
-      "seperator": "=",
+      "separator": "=",
       "type": "directory",
       "help": "make backups into hierarchy based in DIR"
     },
     {
       "keyword": "--suffix",
       "variable": "SUFFIX",
-      "seperator": "=",
+      "separator": "=",
       "help": "backup suffix (default ~ w/o --backup-dir)"
     },
     {
@@ -135,7 +135,7 @@
     {
       "keyword": "--chmod",
       "variable": "CHMOD",
-      "seperator": "=",
+      "separator": "=",
       "help": "affect file and/or directory permissions. Prefix D for a directory, F for a file. For example: --chmod=Dg+s,ug+w,Fo-w,+X"
     },
     {
@@ -215,7 +215,7 @@
     {
       "keyword": "--checksum-choice",
       "variable": "STR",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["auto", "md4", "md5", "none"],
       "help": "choose the checksum algorithms"
     },
@@ -228,27 +228,27 @@
       "keyword": "-B",
       "alias": "--block-size",
       "variable": "SIZE",
-      "seperator": "=",
+      "separator": "=",
       "help": "force a fixed checksum block-size"
     },
     {
       "keyword": "-e",
       "alias": "--rsh",
       "variable": "COMMAND",
-      "seperator": "=",
+      "separator": "=",
       "help": "specify the remote shell to use"
     },
     {
       "keyword": "--rsync-path",
       "variable": "PROGRAM",
-      "seperator": "=",
+      "separator": "=",
       "help": "specify the rsync to run on remote machine"
     },
     {
       "keyword": "-M",
       "alias": "--remote-option",
       "variable": "OPTION",
-      "seperator": "=",
+      "separator": "=",
       "help": "Pass an option to the remote system"
     },
     {
@@ -307,19 +307,19 @@
     {
       "keyword": "--max-delete",
       "variable": "NUM",
-      "seperator": "=",
+      "separator": "=",
       "help": "don't delete more than NUM files"
     },
     {
       "keyword": "--max-size",
       "variable": "SIZE",
-      "seperator": "=",
+      "separator": "=",
       "help": "don't transfer any file larger than SIZE. Suffixes: K, M, G"
     },
     {
       "keyword": "--min-size",
       "variable": "SIZE",
-      "seperator": "=",
+      "separator": "=",
       "help": "don't transfer any file smaller than SIZE"
     },
     {
@@ -329,7 +329,7 @@
     {
       "keyword": "--partial-dir",
       "variable": "DIR",
-      "seperator": "=",
+      "separator": "=",
       "type": "directory",
       "help": "put a partially transferred file into DIR"
     },
@@ -349,31 +349,31 @@
     {
       "keyword": "--usermap",
       "variable": "STRING",
-      "seperator": "=",
+      "separator": "=",
       "help": "custom username mapping"
     },
     {
       "keyword": "--groupmap",
       "variable": "STRING",
-      "seperator": "=",
+      "separator": "=",
       "help": "custom groupname mapping"
     },
     {
       "keyword": "--chown",
       "variable": "USER:GROUP",
-      "seperator": "=",
+      "separator": "=",
       "help": "simple username/groupname mapping"
     },
     {
       "keyword": "--timeout",
       "variable": "SECONDS",
-      "seperator": "=",
+      "separator": "=",
       "help": "set I/O timeout in seconds"
     },
     {
       "keyword": "--contimeout",
       "variable": "SECONDS",
-      "seperator": "=",
+      "separator": "=",
       "help": "set daemon connection timeout in seconds"
     },
     {
@@ -388,7 +388,7 @@
     {
       "keyword": "--modify-window",
       "variable": "NUM",
-      "seperator": "=",
+      "separator": "=",
       "default": "0",
       "help": "set the accuracy(in seconds) for mod-time comparisons. If you specify a negative value (and the receiver  is  at  least version 3.1.3) then nanoseconds will also be taken into account."
     },
@@ -396,7 +396,7 @@
       "keyword": "-T",
       "alias": "--temp-dir",
       "variable": "DIR",
-      "seperator": "=",
+      "separator": "=",
       "type": "directory",
       "help": "create temporary files in directory DIR"
     },
@@ -408,21 +408,21 @@
     {
       "keyword": "--compare-dest",
       "variable": "DIR",
-      "seperator": "=",
+      "separator": "=",
       "type": "directory",
       "help": "also compare received files relative to DIR"
     },
     {
       "keyword": "--copy-dest",
       "variable": "DIR",
-      "seperator": "=",
+      "separator": "=",
       "type": "directory",
       "help": "... and include copies of unchanged files"
     },
     {
       "keyword": "--link-dest",
       "variable": "DIR",
-      "seperator": "=",
+      "separator": "=",
       "type": "directory",
       "help": "hardlink to files in DIR when unchanged"
     },
@@ -434,13 +434,13 @@
     {
       "keyword": "--compress-level",
       "variable": "NUM",
-      "seperator": "=",
+      "separator": "=",
       "help": "explicitly set compression level"
     },
     {
       "keyword": "--skip-compress",
       "variable": "LIST",
-      "seperator": "=",
+      "separator": "=",
       "help": "skip compressing files with suffix in LIST"
     },
     {
@@ -452,7 +452,7 @@
       "keyword": "-f",
       "alias": "--filter",
       "variable": "RULE",
-      "seperator": "=",
+      "separator": "=",
       "help": "add a file-filtering RULE. See the FILTER RULES section in the manual for detailed  information."
     },
     {
@@ -462,31 +462,31 @@
     {
       "keyword": "--exclude",
       "variable": "PATTERN",
-      "seperator": "=",
+      "separator": "=",
       "help": "exclude files matching PATTERN"
     },
     {
       "keyword": "--exclude-from",
       "variable": "FILE",
-      "seperator": "=",
+      "separator": "=",
       "help": "read exclude patterns from FILE"
     },
     {
       "keyword": "--include",
       "variable": "PATTERN",
-      "seperator": "=",
+      "separator": "=",
       "help": "don't exclude files matching PATTERN"
     },
     {
       "keyword": "--include-from",
       "variable": "FILE",
-      "seperator": "=",
+      "separator": "=",
       "help": "read include patterns from FILE"
     },
     {
       "keyword": "--files-from",
       "variable": "FILE",
-      "seperator": "=",
+      "separator": "=",
       "help": "read list of source-file names from FILE"
     },
     {
@@ -502,20 +502,20 @@
     {
       "keyword": "--address",
       "variable": "ADDRESS",
-      "seperator": "=",
+      "separator": "=",
       "type": "localaddr",
       "help": "bind address for outgoing socket to daemon"
     },
     {
       "keyword": "--port",
       "variable": "PORT",
-      "seperator": "=",
+      "separator": "=",
       "help": "specify double-colon alternate port number"
     },
     {
       "keyword": "--sockopts",
       "variable": "OPTIONS",
-      "seperator": "=",
+      "separator": "=",
       "help": "specify custom TCP options"
     },
     {
@@ -525,7 +525,7 @@
     {
       "keyword": "--outbuf",
       "variable": "N|L|B",
-      "seperator": "=",
+      "separator": "=",
       "help": "set out buffering to None, Line, or Block"
     },
     {
@@ -558,26 +558,26 @@
     {
       "keyword": "--out-format",
       "variable": "FORMAT",
-      "seperator": "=",
+      "separator": "=",
       "help": "output updates using the specified FORMAT"
     },
     {
       "keyword": "--log-file",
       "variable": "FILE",
-      "seperator": "=",
+      "separator": "=",
       "type": "savefile",
       "help": "log what we're doing to the specified FILE"
     },
     {
       "keyword": "--log-file-format",
       "variable": "FMT",
-      "seperator": "=",
+      "separator": "=",
       "help": "log updates using the specified FMT"
     },
     {
       "keyword": "--password-file",
       "variable": "FILE",
-      "seperator": "=",
+      "separator": "=",
       "type": "file",
       "help": "read daemon-access password from FILE"
     },
@@ -588,51 +588,51 @@
     {
       "keyword": "--bwlimit",
       "variable": "RATE",
-      "seperator": "=",
+      "separator": "=",
       "help": "limit socket I/O bandwidth"
     },
     {
       "keyword": "--stop-at",
       "variable": "TIME",
-      "seperator": "=",
+      "separator": "=",
       "help": "Stop rsync at year-month-dayThour:minute, e.g. 2004-12-31T23:59"
     },
     {
       "keyword": "--time-limit",
       "variable": "MINS",
-      "seperator": "=",
+      "separator": "=",
       "help": "Stop rsync after MINS minutes have elapsed"
     },
     {
       "keyword": "--write-batch",
       "variable": "FILE",
-      "seperator": "=",
+      "separator": "=",
       "type": "savefile",
       "help": "write a batched update to FILE--only-write-batch=FILE like --write-batch but w/o updating dest"
     },
     {
       "keyword": "--read-batch",
       "variable": "FILE",
-      "seperator": "=",
+      "separator": "=",
       "type": "file",
       "help": "read a batched update from FILE"
     },
     {
       "keyword": "--protocol",
       "variable": "NUM",
-      "seperator": "=",
+      "separator": "=",
       "help": "force an older protocol version to be used"
     },
     {
       "keyword": "--iconv",
       "variable": "CONVERT_SPEC",
-      "seperator": "=",
+      "separator": "=",
       "help": "request charset conversion of filenames. Run 'iconv --list' to get a list of charset names"
     },
     {
       "keyword": "--checksum-seed",
       "variable": "NUM",
-      "seperator": "=",
+      "separator": "=",
       "help": "set block/file checksum seed (advanced)"
     },
     {
@@ -660,14 +660,14 @@
     {
       "keyword": "--config",
       "variable": "FILE",
-      "seperator": "=",
+      "separator": "=",
       "type": "file",
       "help": "specify alternate rsyncd.conf file"
     },
     {
       "keyword": "--dparam",
       "variable": "OVERRIDE",
-      "seperator": "=",
+      "separator": "=",
       "help": "override global daemon config parameter"
     },
     {

@@ -167,7 +167,7 @@
       "keyword": "-z",
       "variable": "compress-level",
       "choices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      "seperator": "",
+      "separator": "",
       "group": "build",
       "help": "Specify  which  compression  level to use on the compressor backend, when building a package (default is 9 for gzip, 6 for xz).  The accepted values are 0-9 with: 0 being mapped to compressornone for gzip.  Before dpkg 1.16.2 level 0 was equivalent to compressor none for all compressors."
     },
@@ -175,7 +175,7 @@
       "keyword": "-S",
       "variable": "compress-strategy",
       "choices": ["none", "filtered", "huffman", "rle", "fixed", "extreme"],
-      "seperator": "",
+      "separator": "",
       "group": "build",
       "help": "Specify which compression strategy to use on the compressor backend, when building a package (since dpkg 1.16.2). Allowed values are none (since dpkg 1.16.4), filtered, huffman, rle and fixed for gzip (since dpkg 1.17.0) and extreme for xz."
     },
@@ -184,7 +184,7 @@
       "variable": "compress-type",
       "choices": ["gzip", "xz", "none"],
       "default": "xz",
-      "seperator": "",
+      "separator": "",
       "group": "build",
       "help": "Specify which compression type to use when building a package.  Allowed values are gzip, xz (since dpkg 1.15.6), and none (default is xz)."
     },
@@ -196,7 +196,7 @@
     {
       "keyword": "--deb-format",
       "variable": "format",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["2.0", "0.939000"],
       "group": "build",
       "help": "Set the archive format version used when building (since dpkg 1.17.0).  Allowed values are 2.0 for the new format, and 0.939000 for the old one (default is 2.0)."

@@ -25,7 +25,7 @@
     {
       "keyword": "--block-size",
       "variable": "SIZE",
-      "seperator": "=",
+      "separator": "=",
       "help": "with -l, scale sizes by SIZE when printing them; e.g., '--block-size=M'; see SIZE format below"
     },
     {
@@ -35,7 +35,7 @@
     },
     {
       "keyword": "--color",
-      "seperator": "=",
+      "separator": "=",
       "variable": "WHEN",
       "choices": ["always","auto","never"],
       "help": "colorize the output; WHEN can be 'always' (default if omitted), 'auto', or 'never'; more info below"
@@ -62,7 +62,7 @@
     {
       "keyword": "--format",
       "variable": "WORD",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["across", "commas", "horizontal", "long", "single-column", "verbose", "vertical"],
       "help": "across -x, commas -m, horizontal -x, long -l, single-column -1, verbose -l, vertical -C"
     },
@@ -96,20 +96,20 @@
     {
       "keyword": "--hide",
       "variable": "PATTERN",
-      "seperator": "=",
+      "separator": "=",
       "help": "do not list implied entries matching shell PATTERN (overridden by -a or -A)"
     },
     {
       "keyword": "--hyperlink",
       "variable": "WHEN",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["always","auto","never"],
       "help": "hyperlink file names; WHEN can be 'always' (default if omitted), 'auto', or 'never'"
     },
     {
       "keyword": "--indicator-style",
       "variable": "WORD",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["none","slash","file-type","classify"],
       "help": "append indicator with style WORD to entry names: none (default), slash (-p), file-type (--file-type), classify (-F)"
     },
@@ -122,7 +122,7 @@
       "keyword": "-I",
       "alias": "--ignore",
       "variable": "PATTERN",
-      "seperator": "=",
+      "separator": "=",
       "help": "do not list implied entries matching shell PATTERN"
     },
     {
@@ -166,7 +166,7 @@
     {
       "keyword": "--quoting-style",
       "variable": "WORD",
-      "seperator": "=",
+      "separator": "=",
       "choices":["literal", "locale", "shell", "shell-always", "shell-escape", "shell-escape-always", "c", "escape"],
       "help": "use quoting style WORD for entry names: literal, locale, shell, shell-always, shell-escape, shell-escape-always, c, escape (overrides QUOTING_STYLE environment variable)"
     },
@@ -188,20 +188,20 @@
     {
       "keyword": "--sort",
       "variable": "WORD",
-      "seperator": "=",
+      "separator": "=",
       "help": "sort by WORD instead of name: none (-U), size (-S), time (-t), version (-v), extension (-X)"
     },
     {
       "keyword": "--time",
       "variable": "WORD",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["atime", "access", "use", "ctime", "status"],
       "help": "with -l, show time as WORD instead of default modification time: atime or access or use (-u); ctime or status (-c); also use specified time as sort key if --sort=time (newest first)"
     },
     {
       "keyword": "--time-style",
       "variable": "TIME_STYLE",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["full-iso", "long-iso", "iso", "locale"],
       "help": "time/date format with -l; see TIME_STYLE below"
     },
@@ -209,14 +209,14 @@
       "keyword": "-T",
       "alias": "--tabsize",
       "variable": "COLS",
-      "seperator": "=",
+      "separator": "=",
       "help": "assume tab stops at each COLS instead of 8"
     },
     {
       "keyword": "-w",
       "alias": "--width",
       "variable": "COLS",
-      "seperator": "=",
+      "separator": "=",
       "help": "set output width to COLS.  0 means no limit"
     },
     {

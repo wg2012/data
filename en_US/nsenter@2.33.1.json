@@ -22,7 +22,7 @@
     },
     {
       "keyword": "--mount",
-      "seperator": "=",
+      "separator": "=",
       "variable": "file",
       "type": "file",
       "help": "Enter the mount namespace specified by file."
@@ -33,7 +33,7 @@
     },
     {
       "keyword": "--uts",
-      "seperator": "=",
+      "separator": "=",
       "variable": "file",
       "type": "file",
       "help": "Enter the UTS namespace specified by file."
@@ -44,7 +44,7 @@
     },
     {
       "keyword": "--ipc",
-      "seperator": "=",
+      "separator": "=",
       "variable": "file",
       "type": "file",
       "help": "Enter the IPC namespace specified by file."
@@ -55,7 +55,7 @@
     },
     {
       "keyword": "--net",
-      "seperator": "=",
+      "separator": "=",
       "variable": "file",
       "type": "file",
       "help": "Enter the network namespace specified by file."
@@ -66,7 +66,7 @@
     },
     {
       "keyword": "--pid",
-      "seperator": "=",
+      "separator": "=",
       "variable": "file",
       "type": "file",
       "help": "Enter the PID namespace specified by file."
@@ -77,7 +77,7 @@
     },
     {
       "keyword": "--user",
-      "seperator": "=",
+      "separator": "=",
       "variable": "file",
       "type": "file",
       "help": "Enter the user namespace specified by file. See also the --setuidand --setgid options."
@@ -88,7 +88,7 @@
     },
     {
       "keyword": "--cgroup",
-      "seperator": "=",
+      "separator": "=",
       "variable": "file",
       "type": "file",
       "help": "Enter the cgroup namespace specified by file."
@@ -115,7 +115,7 @@
     },
     {
       "keyword": "--root",
-      "seperator": "=",
+      "separator": "=",
       "variable": "directory",
       "help": "Set the root directory to the  specifieddirectory."
     },
@@ -125,7 +125,7 @@
     },
     {
       "keyword": "--wd",
-      "seperator": "=",
+      "separator": "=",
       "variable": "directory",
       "help": "Set the working directory tothe specified directory."
     },

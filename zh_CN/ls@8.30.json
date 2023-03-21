@@ -25,7 +25,7 @@
     {
       "keyword": "--block-size",
       "variable": "SIZE",
-      "seperator": "=",
+      "separator": "=",
       "help": "与-l配合使用, 打印时按 SIZE 缩放大小; 例如'--block-size=M'; 单位有K,M,G,T,P,E,Z,Y (1024的幂)或者KB,MB,... (1000的幂)"
     },
     {
@@ -35,7 +35,7 @@
     },
     {
       "keyword": "--color",
-      "seperator": "=",
+      "separator": "=",
       "variable": "WHEN",
       "choices": ["always","auto","never"],
       "help": "为输出着色; WHEN 可以是 'always'(缺省), 'auto'(当标准输出是终端时着色), 或者 'never'(不着色)"
@@ -62,7 +62,7 @@
     {
       "keyword": "--format",
       "variable": "WORD",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["across", "commas", "horizontal", "long", "single-column", "verbose", "vertical"],
       "help": "输出格式，对应关系为：across -x, commas -m, horizontal -x, long -l, single-column -1, verbose -l, vertical -C"
     },
@@ -96,20 +96,20 @@
     {
       "keyword": "--hide",
       "variable": "PATTERN",
-      "seperator": "=",
+      "separator": "=",
       "help": "不要列出与 PATTERN 匹配的隐含条目 (优先级低于 -a 或 -A)"
     },
     {
       "keyword": "--hyperlink",
       "variable": "WHEN",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["always","auto","never"],
       "help": "超链接文件名"
     },
     {
       "keyword": "--indicator-style",
       "variable": "WORD",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["none","slash","file-type","classify"],
       "help": "将带有样式的指示符号附加到条目名称后: none (缺省，不附加), slash (类似与-p), file-type (类似于--file-type), classify (类似于-F)"
     },
@@ -122,7 +122,7 @@
       "keyword": "-I",
       "alias": "--ignore",
       "variable": "PATTERN",
-      "seperator": "=",
+      "separator": "=",
       "help": "不要列出与 PATTERN 匹配的隐含条目"
     },
     {
@@ -166,7 +166,7 @@
     {
       "keyword": "--quoting-style",
       "variable": "WORD",
-      "seperator": "=",
+      "separator": "=",
       "choices":["literal", "locale", "shell", "shell-always", "shell-escape", "shell-escape-always", "c", "escape"],
       "help": "对条目名称使用指定的引号样式"
     },
@@ -188,21 +188,21 @@
     {
       "keyword": "--sort",
       "variable": "WORD",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["none", "size", "time", "version", "extension"],
       "help": "按WORD而不是名称排序"
     },
     {
       "keyword": "--time",
       "variable": "WORD",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["atime", "access", "use", "ctime", "status"],
       "help": "与-l配合使用, 将时间显示为 WORD 而不是默认修改时间"
     },
     {
       "keyword": "--time-style",
       "variable": "TIME_STYLE",
-      "seperator": "=",
+      "separator": "=",
       "choices": ["full-iso", "long-iso", "iso", "locale"],
       "help": "与-l配合使用的时间/日期格式"
     },
@@ -210,14 +210,14 @@
       "keyword": "-T",
       "alias": "--tabsize",
       "variable": "COLS",
-      "seperator": "=",
+      "separator": "=",
       "help": "设定制表位的宽度是 COLS 而不是 8 "
     },
     {
       "keyword": "-w",
       "alias": "--width",
       "variable": "COLS",
-      "seperator": "=",
+      "separator": "=",
       "help": "将输出宽度设置为 COLS. 0 表示无限制"
     },
     {

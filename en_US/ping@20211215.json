@@ -137,25 +137,25 @@
           {
               "keyword": "subject-ipv6",
               "variable": "ipv6addr",
-              "seperator": "=",
+              "separator": "=",
               "help": "IPv6 subject address."
           },
           {
               "keyword": "subject-ipv4",
               "variable": "ipv4addr",
-              "seperator": "=",
+              "separator": "=",
               "help": "IPv4 subject address."
           },
           {
               "keyword": "subject-name",
               "variable": "nodename",
-              "seperator": "=",
+              "separator": "=",
               "help": "Subject name. If it contains more than one dot, fully-qualified domain name is assumed."
           },
           {
               "keyword": "subject-fqdn",
               "variable": "nodename",
-              "seperator": "=",
+              "separator": "=",
               "help": "Subject name. Fully-qualified domain name is always assumed."
           }
       ]
