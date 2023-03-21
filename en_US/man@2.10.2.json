@@ -1,0 +1,260 @@
+{
+  "command": "man",
+  "show_version": "man -V | awk '{print $2}'",
+  "supported_versions": [
+    "2.10.2"
+  ],
+  "arguments": [
+    {
+      "keyword": "-C",
+      "alias": "--config-file",
+      "variable": "file",
+      "separator": "=",
+      "help": "Use this user configuration file rather than the default of ~/.manpath."
+    },
+    {
+      "keyword": "-d",
+      "alias": "--debug",
+      "help": "Print debugging information."
+    },
+    {
+      "keyword": "-D",
+      "alias": "--default",
+      "help": "This option is normally issued as the very first option and resets man's behaviour to its default.  Its use is to reset those options that may have been set in $MANOPT.\tAny options that  follow -D will have their usual effect."
+    },
+    {
+      "keyword": "--warnings",
+      "variable": "warnings",
+      "separator": "=",
+      "help": "Enable  warnings from groff.  This may be used to perform sanity checks on the source text of manual pages.  warnings is a comma-separated list of warning names; if it is not supplied, the default is \"mac\".  See the Warnings node in info groff for a list of available warning names."
+    },
+    {
+      "keyword": "-f",
+      "alias": "--whatis",
+      "group": "Operation",
+      "help": "Equivalent to whatis.  Display a short description from the manual page, if available.  See whatis(1) for details."
+    },
+    {
+      "keyword": "-k",
+      "alias": "--apropos",
+      "group": "Operation",
+      "help": "Equivalent to apropos.  Search the short manual page descriptions for keywords and display any matches.  See apropos(1) for details."
+    },
+    {
+      "keyword": "-K",
+      "alias": "--global-apropos",
+      "group": "Operation",
+      "help": "Search for text in all manual pages.  This is a brute-force search, and is likely to take some time; if you can, you should specify a section to reduce the number of  pages  that  need\tto  besearched.\t Search terms may be simple strings (the default), or regular expressions if the --regex option is used."
+    },
+    {
+      "keyword": "-l",
+      "alias": "--local-file",
+      "group": "Operation",
+      "help": "Activate \"local\" mode.  Format and display local manual files instead of searching through the system's manual collection.  Each manual page argument will be interpreted\t as  an\t nroff\tsourcefile  in\tthe correct format.  No cat file is produced.  If '-' is listed as one of the arguments, input will be taken from stdin.  When this option is not used, and man fails to find the pagerequired, before displaying the error message, it attempts to act as if this option was supplied, using the name as a filename and looking for an exact match."
+    },
+    {
+      "keyword": "-c",
+      "alias": "--catman",
+      "group": "Operation",
+      "help": "This option is not for general use and should only be used by the catman program."
+    },
+    {
+      "keyword": "-R",
+      "alias": "--recode",
+      "variable": "encoding",
+      "separator": "=",
+      "group": "Operation",
+      "help": "Instead of formatting the manual page in the usual way, output its source converted to the specified encoding.  If you already know the encoding of the source file, you can also use manconv(1)directly.\t  However,  this  option  allows you to convert several manual pages to a single encoding without having to explicitly state the encoding of each, provided that they were already in\u2010stalled in a structure similar to a manual page hierarchy."
+    },
+    {
+      "keyword": "-L",
+      "alias": "--locale",
+      "variable": "locale",
+      "choices": ["C.utf8", "POSIX", "en_US.utf8", "zh_CN.utf8"],
+      "separator": "=",
+      "group": "Finding",
+      "help": "man will normally determine your current locale by a call to the C function setlocale(3) which interrogates various environment variables, possibly including $LC_MESSAGES and $LANG.  To tempo\u2010rarily  override the determined value, use this option to supply a locale string directly to man.\t Note that it will not take effect until the search for pages actually begins.\tOutput such asthe help message will always be displayed in the initially determined locale."
+    },
+    {
+      "keyword": "-m",
+      "alias": "--systems",
+      "variable": "system",
+      "separator": "=",
+      "group": "Finding",
+      "help": "If this system has access to other operating systems' manual pages, they can be accessed using this option.  To search for a manual page from NewOS's manual page collection, use the option  -mNewOS."
+    },
+    {
+      "keyword": "-M",
+      "alias": "--manpath",
+      "variable": "path",
+      "separator": "=",
+      "group": "Finding",
+      "help": "Specify an alternate manpath to use.  By default, man uses manpath derived code to determine the path to search.\tThis option overrides the $MANPATH environment variable and causes  option  -mto be ignored."
+    },
+    {
+      "keyword": "-S",
+      "alias": "--sections",
+      "variable": "list",
+      "separator": "=",
+      "group": "Finding",
+      "help": "The given list is a colon- or comma-separated list of sections, used to determine which manual sections to search and in what order. This option overrides the $MANSECT environment variable."
+    },
+    {
+      "keyword": "-e",
+      "alias": "--extension",
+      "variable": "sub-extension",
+      "separator": "=",
+      "group": "Finding",
+      "help": "Some systems incorporate large packages of manual pages, such as those that accompany the Tcl package, into the main manual page hierarchy. To get around the problem of having two manualpages with the same name such as exit(3), the Tcl pages were usually all assigned to section l.  As this is unfortunate, it is now possible to put the pages in the correct section, and to  as\u2010sign  a  specific \"extension\" to them, in this case, exit(3tcl).\tUnder normal operation, man will display exit(3) in preference to exit(3tcl).  To negotiate this situation and to avoid havingto know which section the page you require resides in, it is now possible to give man a sub-extension string indicating which package the page must belong to.  Using the above example, supply\u2010ing the option -e tcl to man will restrict the search to pages having an extension of *tcl."
+    },
+    {
+      "keyword": "-i",
+      "alias": "--ignore-case",
+      "group": "Finding",
+      "help": "Ignore case when searching for manual pages.  This is the default."
+    },
+    {
+      "keyword": "-I",
+      "alias": "--match-case",
+      "group": "Finding",
+      "help": "Search for manual pages case-sensitively."
+    },
+    {
+      "keyword": "--regex",
+      "group": "Finding",
+      "help": "Show  all\t pages with any part of either their names or their descriptions matching each page argument as a regular expression, as with apropos(1).  Since there is usually no reasonable way topick a \"best\" page when searching for a regular expression, this option implies -a."
+    },
+    {
+      "keyword": "--wildcard",
+      "group": "Finding",
+      "help": "Show all pages with any part of either their names or their descriptions matching each page argument using shell-style wildcards, as with apropos(1) --wildcard.\tThe page argument  must\t matchthe  entire  name or description, or match on word boundaries in the description.\t Since there is usually no reasonable way to pick a \"best\" page when searching for a wildcard, this option im\u2010plies -a."
+    },
+    {
+      "keyword": "--names-only",
+      "group": "Finding",
+      "help": "If the --regex or --wildcard option is used, match only page names, not page descriptions, as with whatis(1).  Otherwise, no effect."
+    },
+    {
+      "keyword": "-a",
+      "alias": "--all",
+      "group": "Finding",
+      "help": "By default, man will exit after displaying the most suitable manual page it finds.  Using this option forces man to display all the manual pages with names that match the search criteria."
+    },
+    {
+      "keyword": "-u",
+      "alias": "--update",
+      "group": "Finding",
+      "help": "This option causes man to update its database caches of installed manual pages.  This is only needed in rare situations, and it is normally better to run mandb(8) instead."
+    },
+    {
+      "keyword": "--no-subpages",
+      "group": "Finding",
+      "help": "By default, man will try to interpret pairs of manual page names given on the command line as equivalent to a single manual page name containing a hyphen or an underscore.  This\t supports  thecommon  pattern of programs that implement a number of subcommands, allowing them to provide manual pages for each that can be accessed using similar syntax as would be used to invoke the sub\u2010commands themselves.  For example:"
+    },
+    {
+      "keyword": "-P",
+      "alias": "--pager",
+      "variable": "pager",
+      "separator": "=",
+      "group": "Output",
+      "help": "Specify which output pager to use.  By default, man uses pager, falling back to cat if pager is not found or is not executable.  This option overrides the $MANPAGER environment variable, whichin turn overrides the $PAGER environment variable.  It is not used in conjunction with -f or -k."
+    },
+    {
+      "keyword": "-r",
+      "alias": "--prompt",
+      "variable": "prompt",
+      "separator": "=",
+      "group": "Output",
+      "help": "If a recent version of less is used as the pager, man will attempt to set its prompt and some sensible options.  The default prompt looks like"
+    },
+    {
+      "keyword": "-7",
+      "alias": "--ascii",
+      "group": "Output",
+      "help": "When  viewing  a pure ascii(7) manual page on a 7 bit terminal or terminal emulator, some characters may not display correctly when using the latin1(7) device description with GNU nroff.  Thisoption allows pure ascii manual pages to be displayed in ascii with the latin1 device.  It will not translate any latin1 text.  The following table shows the translations performed: some partsof it may only be displayed properly when using GNU nroff's latin1(7) device."
+    },
+    {
+      "keyword": "-E",
+      "alias": "--encoding",
+      "variable": "encoding",
+      "separator": "=",
+      "group": "Output",
+      "help": "Generate output for a character encoding other than the default.\t For backward compatibility, encoding may be an nroff device such as ascii, latin1, or utf8 as well as a true character encod\u2010ing such as UTF-8."
+    },
+    {
+      "keyword": "--no-hyphenation",
+      "alias": "--nh",
+      "group": "Output",
+      "help": "Normally, nroff will automatically hyphenate text at line breaks even in words that do not contain hyphens, if it is necessary to do so to lay out words on a line  without  excessive  spacing.This option disables automatic hyphenation, so words will only be hyphenated if they already contain hyphens."
+    },
+    {
+      "keyword": "--no-justification",
+      "alias": "--nj",
+      "group": "Output",
+      "help": "Normally, nroff will automatically justify text to both margins.\tThis option disables full justification, leaving justified only to the left margin, sometimes called \"ragged-right\" text."
+    },
+    {
+      "keyword": "-p",
+      "alias": "--preprocessor",
+      "variable": "string",
+      "separator": "=",
+      "group": "Output",
+      "help": "Specify  the sequence of preprocessors to run before nroff or troff/groff.  Not all installations will have a full set of preprocessors.\tSome of the preprocessors and the letters used to des\u2010ignate them are: eqn (e), grap (g), pic (p), tbl (t), vgrind (v), refer (r).  This option overrides the $MANROFFSEQ environment variable.\t zsoelim is always run as the very first preprocessor."
+    },
+    {
+      "keyword": "-t",
+      "alias": "--troff",
+      "group": "Output",
+      "help": "Use groff -mandoc to format the manual page to stdout.  This option is not required in conjunction with -H, -T, or -Z."
+    },
+    {
+      "keyword": "-T",
+      "alias": "--troff-device",
+      "variable": "device",
+      "separator": "=",
+      "group": "Output",
+      "help": "This option is used to change groff (or possibly troff's) output to be suitable for a device other than the default.  It implies -t.  Examples (provided with Groff-1.17) include\t dvi,  latin1,ps, utf8, X75 and X100."
+    },
+    {
+      "keyword": "-H",
+      "alias": "--html",
+      "variable": "browser",
+      "separator": "=",
+      "group": "Output",
+      "help": "This option will cause groff to produce HTML output, and will display that output in a web browser.  The choice of browser is determined by the optional browser argument if one is provided, bythe $BROWSER environment variable, or by a compile-time default if that is unset (usually lynx). This option implies -t, and will only work with GNU troff."
+    },
+    {
+      "keyword": "-X",
+      "alias": "--gxditview",
+      "variable": "dpi",
+      "separator": "=",
+      "group": "Output",
+      "help": "This option displays the output of groff in a graphical window using the gxditview program.  The dpi (dots per inch) may be 75, 75-12, 100, or 100-12, defaulting to 75; the -12 variants use  a12-point base font. This option implies -T with the X75, X75-12, X100, or X100-12 device respectively."
+    },
+    {
+      "keyword": "-Z",
+      "alias": "--ditroff",
+      "group": "Output",
+      "help": "groff will run troff and then use an appropriate post-processor to produce output suitable for the chosen device. If groff -mandoc is groff, this option is passed to groff and will suppressthe use of a post-processor. It implies -t."
+    },
+    {
+      "keyword": "-?",
+      "alias": "--help",
+      "help": "Print a help message and exit."
+    },
+    {
+      "keyword": "--usage",
+      "help": "Print a short usage message and exit."
+    },
+    {
+      "keyword": "-V",
+      "alias": "--version",
+      "help": "Display version information."
+    },
+    {
+      "variable": "term",
+      "display_order": 0,
+      "help": "The term or man page to show"
+    }
+  ]
+}
