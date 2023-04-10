@@ -1,0 +1,230 @@
+{
+  "command": "apt-cache",
+  "show_version": "apt-cache -v",
+  "supported_versions": [
+    "apt 2.4.8 (amd64)"
+  ],
+  "arguments": [
+    {
+      "keyword": "-a",
+      "alias": "--all-versions",
+      "help": "Print full records for all available versions. This is the default; to turn it off, use --no-all-versions. If --no-all-versions is specified, only the candidate version will be displayed (the onewhich would be selected for installation). This option is only applicable to the show command."
+    },
+    {
+      "keyword": "-g",
+      "alias": "--generate",
+      "help": "Perform automatic package cache regeneration, rather than use the cache as it is. This is the default; to turn it off, use --no-generate."
+    },
+    {
+      "keyword": "-i",
+      "alias": "--important",
+      "help": "Print only important dependencies; for use with unmet and depends. Causes only Depends and Pre-Depends relations to be printed."
+    },
+    {
+      "keyword": "-p",
+      "alias": "--pkg-cache",
+      "variable": "pkg_cache_file",
+      "type": "file",
+      "default": "/var/cache/apt/pkgcache.bin",
+      "help": "Select the file to store the package cache. The package cache is the primary cache used by all operations."
+    },
+    {
+      "keyword": "-n",
+      "alias": "--names-only",
+      "help": "Only search on the package and provided package names, not the long descriptions."
+    },
+    {
+      "keyword": "-s",
+      "alias": "--src-cache",
+      "variable": "src_cache_file",
+      "type": "file",
+      "default": "/var/cache/apt/srcpkgcache.bin",
+      "help": "Select the file to store the source cache. The source is used only by gencaches and it stores a parsed version of the package information from remote sources. When building the package cache thesource cache is used to avoid reparsing all of the package files."
+    },
+    {
+      "help": "Operations",
+      "one_of": [
+        {
+          "keyword": "show",
+          "variable": "pkg",
+          "help": "show performs a function similar to dpkg --print-avail; it displays the package records for the named packages."
+        },
+        {
+          "keyword": "search",
+          "variable": "regex",
+          "help": "search performs a full text search on all available package lists for the POSIX regex pattern given, see regex(7). ",
+          "arguments": [
+            {
+              "keyword": "-f",
+              "alias": "--full",
+              "help": "Print full package records when searching."
+            },
+            {
+              "keyword": "--names-only",
+              "alias": "-n",
+              "help": "Only search on the package and provided package names, not the long descriptions."
+            }
+          ]
+        },
+        {
+          "keyword": "policy",
+          "variable": "pkg",
+          "help": "policy is meant to help debug issues relating to the preferences file. With no arguments it will print out the priorities of each source.Otherwise it prints out detailed information about the priority selection of the named package."
+        },
+        {
+          "keyword": "madison",
+          "variable": "pkg",
+          "help": "displays available versions of a package in a tabular format."
+        },
+        {
+          "keyword": "depends",
+          "variable": "pkg",
+          "help": "depends shows a listing of each dependency a package has and all the possible other packages that can fulfill that dependency.",
+          "arguments": [
+            {
+              "keyword": "--recurse",
+              "help": "Make depends and rdepends recursive so that all packages mentioned are printed once."
+            },
+            {
+              "keyword": "--installed",
+              "help": "Limit the output of depends and rdepends to packages which are currently installed."
+            }
+          ]
+        },
+        {
+          "keyword": "rdepends",
+          "variable": "pkg",
+          "help": "rdepends shows a listing of each reverse dependency a package has.",
+          "arguments": [
+            {
+              "keyword": "--recurse",
+              "help": "Make depends and rdepends recursive so that all packages mentioned are printed once."
+            },
+            {
+              "keyword": "--installed",
+              "help": "Limit the output of depends and rdepends to packages which are currently installed."
+            }
+          ]
+        },
+        {
+          "keyword": "gencaches",
+          "help": "gencaches creates APT's package cache. This is done implicitly by all commands needing this cache if it is missing or outdated."
+        },
+        {
+          "keyword": "showpkg",
+          "variable": "pkg",
+          "help": "showpkg displays information about the packages listed on the command line."
+        },
+        {
+          "keyword": "stats",
+          "help": "stats displays some statistics about the cache."
+        },
+        {
+          "keyword": "showsrc",
+          "variable": "pkg",
+          "help": "showsrc displays all the source package records that match the given package names. All versions are shown, as well as all records that declare the name to be a binary package. Use --only-source to"
+        },
+        {
+          "keyword": "dump",
+          "help": "dump shows a short listing of every package in the cache. It is primarily for debugging."
+        },
+        {
+          "keyword": "dumpavail",
+          "help": "dumpavail prints out an available list to stdout. This is suitable for use with dpkg(1) and is used by the dselect(1) method."
+        },
+        {
+          "keyword": "unmet",
+          "help": "unmet displays a summary of all unmet dependencies in the package cache."
+        },
+        {
+          "keyword": "pkgnames",
+          "variable": "prefix",
+          "default": "",
+          "help": "This command prints the name of each package APT knows.",
+          "arguments": [
+            {
+              "keyword": "--all-names",
+              "help": "Make pkgnames print all names, including virtual packages and missing dependencies."
+            }
+          ]
+        },
+        {
+          "keyword": "dotty",
+          "variable": "pkg",
+          "help": "dotty takes a list of packages on the command line and generates output suitable for use by dotty from the GraphViz[1] package."
+        },
+        {
+          "keyword": "xvcg",
+          "variable": "pkg",
+          "help": "The same as dotty, only for xvcg from the VCG tool[2]."
+        }
+      ],
+      "display_order": 0
+    },
+    {
+      "keyword": "-q",
+      "alias": "--quiet",
+      "help": "Quiet; produces output suitable for logging, omitting progress indicators. More q's will produce more quietness up to a maximum of 2. You can also use -q=# to set the quietness level, overriding theconfiguration file."
+    },
+    {
+      "keyword": "--no-pre-depends"
+    },
+    {
+      "keyword": "--no-depends"
+    },
+    {
+      "keyword": "--no-recommends"
+    },
+    {
+      "keyword": "--no-suggests"
+    },
+    {
+      "keyword": "--no-conflicts"
+    },
+    {
+      "keyword": "--no-breaks"
+    },
+    {
+      "keyword": "--no-breaks"
+    },
+    {
+      "keyword": "--no-replaces"
+    },
+    {
+      "keyword": "--no-enhances"
+    },
+    {
+      "keyword": "--implicit",
+      "help": "Per default depends and rdepends print only dependencies explicitly expressed in the metadata. With this flag it will also show dependencies implicitly added based on the encountered data. AConflicts: foo e.g. expresses implicitly that this package also conflicts with the package foo from any other architecture."
+    },
+    {
+      "keyword": "--with-source",
+      "variable": "filename",
+      "type": "file",
+      "help": "Adds the given file as a source for metadata. Can be repeated to add multiple files. Supported are currently *.deb, *.dsc, *.changes, Sources and Packages files as well as source package directories.Files are matched based on their name only, not their content!"
+    },
+    {
+      "keyword": "-h",
+      "alias": "--help",
+      "help": "Show a short usage summary."
+    },
+    {
+      "keyword": "-v",
+      "alias": "--version",
+      "help": "Show the program version."
+    },
+    {
+      "keyword": "-c",
+      "alias": "--config-file",
+      "variable": "filename",
+      "type": "file",
+      "help": "Configuration File; Specify a configuration file to use. The program will read the default configuration file and then this configuration file. If configuration settings need to be set before thedefault configuration files are parsed specify a file with the APT_CONFIG environment variable. See apt.conf(5) for syntax information."
+    },
+    {
+      "keyword": "-o",
+      "alias": "--option",
+      "variable": "option",
+      "help": "Set a Configuration Option; This will set an arbitrary configuration option. The syntax is -o Foo::Bar=bar. -o and --option can be used multiple times to set different options."
+    }
+  ]
+}
