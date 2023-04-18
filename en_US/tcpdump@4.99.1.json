@@ -1,0 +1,349 @@
+{
+  "command": "tcpdump",
+  "show_version": "tcpdump --version | awk '{print $3}'",
+  "supported_versions": [
+    "4.99.1"
+  ],
+  "arguments": [
+    {
+      "keyword": "-A",
+      "group": "display",
+      "help": "Print each packet (minus its link level header) in ASCII.\t Handy for capturing web pages."
+    },
+    {
+      "keyword": "-b",
+      "group": "display",
+      "help": "Print the AS number in BGP packets in ASDOT notation rather than ASPLAIN notation."
+    },
+    {
+      "keyword": "-B",
+      "alias": "--buffer-size",
+      "variable": "buffer_size",
+      "seperator": "=",
+      "group": "capture",
+      "help": "Set the operating system capture buffer size to buffer_size, in units of KiB (1024 bytes)."
+    },
+    {
+      "keyword": "-c",
+      "variable": "count",
+      "group": "capture",
+      "help": "Exit after receiving count packets."
+    },
+    {
+      "keyword": "--count",
+      "group": "display",
+      "help": "Print only on stderr the packet count when reading capture file(s) instead of parsing/printing the packets. If a filter is specified on the command line, tcpdump counts\tonly  packets  that  werematched by the filter expression."
+    },
+    {
+      "keyword": "-C",
+      "variable": "file_size",
+      "group": "capture",
+      "help": "Before writing a raw packet to a savefile, check whether the file is currently larger than file_size and, if so, close the current savefile and open a new one.  Savefiles after the first savefilewill have the name specified with the -w flag, with a number after it, starting at 1 and continuing upward.  The units of file_size are millions of bytes (1,000,000 bytes, not 1,048,576 bytes)."
+    },
+    {
+      "keyword": "-d",
+      "help": "Dump the compiled packet-matching code in a human readable form to standard output and stop."
+    },
+    {
+      "keyword": "-dd",
+      "help": "Dump packet-matching code as a C program fragment."
+    },
+    {
+      "keyword": "-ddd",
+      "help": "Dump packet-matching code as decimal numbers (preceded with a count)."
+    },
+    {
+      "keyword": "-D",
+      "alias": "--list-interfaces",
+      "help": "Print the list of the network interfaces available on the system and on which tcpdump can capture packets.  For each network interface, a number and an interface name, possibly followed by a textdescription of the interface, are printed.  The interface name or the number can be supplied to the -i flag to specify an interface on which to capture."
+    },
+    {
+      "keyword": "-e",
+      "group": "display",
+      "help": "Print the link-level header on each dump line.  This can be used, for example, to print MAC layer addresses for protocols such as Ethernet and IEEE 802.11."
+    },
+    {
+      "keyword": "-E",
+      "help": "Use spi@ipaddr algo:secret for decrypting IPsec ESP packets that are addressed to addr and contain Security Parameter Index value spi. This combination may be repeated with comma or newline sepa\u2010ration."
+    },
+    {
+      "keyword": "-f",
+      "group": "display",
+      "help": "Print  `foreign' IPv4 addresses numerically rather than symbolically (this option is intended to get around serious brain damage in Sun's NIS server \u2014 usually it hangs forever translating non-lo\u2010cal internet numbers)."
+    },
+    {
+      "keyword": "-F",
+      "variable": "file",
+      "type": "file",
+      "group": "capture",
+      "help": "Use file as input for the filter expression.  An additional expression given on the command line is ignored."
+    },
+    {
+      "keyword": "-G",
+      "variable": "rotate_seconds",
+      "group": "capture",
+      "help": "If specified, rotates the dump file specified with the -w option every rotate_seconds seconds.  Savefiles will have the name specified by -w which should include a time format as defined by strftime(3). If  no time format is specified, each new file will overwrite the previous.  Whenever a generated filename is not unique, tcpdump will overwrite the pre-existing data; providing a timespecification that is coarser than the capture period is therefore not advised."
+    },
+    {
+      "keyword": "-h",
+      "alias": "--help",
+      "help": "Print the tcpdump and libpcap version strings, print a usage message, and exit."
+    },
+    {
+      "keyword": "--version",
+      "help": "Print the tcpdump and libpcap version strings and exit."
+    },
+    {
+      "keyword": "-H",
+      "help": "Attempt to detect 802.11s draft mesh headers."
+    },
+    {
+      "keyword": "-i",
+      "alias": "--interface",
+      "variable": "interface",
+      "seperator": "=",
+      "type": "netdev",
+      "display_order": 1,
+      "help": "Listen, report the list of link-layer types, report the list of time stamp types, or report the results of compiling a filter expression on interface.  If unspecified and if the -d  flag  is  notgiven, tcpdump searches the system interface list for the lowest numbered, configured up interface (excluding loopback), which may turn out to be, for example, ``eth0''."
+    },
+    {
+      "keyword": "-I",
+      "alias": "--monitor-mode",
+      "help": "Put the interface in \"monitor mode\"; this is supported only on IEEE 802.11 Wi-Fi interfaces, and supported only on some operating systems."
+    },
+    {
+      "keyword": "--immediate-mode",
+      "help": "Capture in \"immediate mode\".  In this mode, packets are delivered to tcpdump as soon as they arrive, rather than being buffered for efficiency.  This is the default when printing  packets  ratherthan saving packets to a ``savefile'' if the packets are being printed to a terminal rather than to a file or pipe."
+    },
+    {
+      "keyword": "-j",
+      "alias": "--time-stamp-type",
+      "variable": "tstamp_type",
+      "seperator": "=",
+      "help": "Set the time  stamp type for the capture to tstamp_type.  The names to use for the time stamp types are given in pcap-tstamp(7); not all the types listed there will necessarily be valid for anygiven interface."
+    },
+    {
+      "keyword": "-J",
+      "alias": "--list-time-stamp-types",
+      "help": "List the supported time stamp types for the interface and exit.  If the time stamp type cannot be set for the interface, no time stamp types are listed."
+    },
+    {
+      "keyword": "--time-stamp-precision",
+      "variable": "tstamp_precision",
+      "seperator": "=",
+      "help": "When capturing, set the time stamp precision for the capture to tstamp_precision.\t Note that availability of high precision time stamps (nanoseconds) and their actual  accuracy\tis  platform  andhardware\tdependent.  Also note that when writing captures made with nanosecond accuracy to a savefile, the time stamps are written with nanosecond resolution, and the file is written with a dif\u2010ferent magic number, to indicate that the time stamps are in seconds and nanoseconds; not all programs that read pcap savefiles will be able to read those captures."
+    },
+    {
+      "keyword": "--micro",
+      "help": "--nano Shorthands  for  --time-stamp-precision=micro  or\t --time-stamp-precision=nano, adjusting the time stamp precision accordingly.  When reading packets from a savefile, using --micro truncates timestamps if the savefile was created with nanosecond precision.  In contrast, a savefile created with microsecond precision will have trailing zeroes added to the time stamp when --nano is used."
+    },
+    {
+      "keyword": "-K",
+      "alias": "--dont-verify-checksums",
+      "help": "Don't attempt to verify IP, TCP, or UDP checksums.  This is useful for interfaces that perform some or all of those checksum calculation in hardware; otherwise, all outgoing TCP checksums will beflagged as bad."
+    },
+    {
+      "keyword": "-l",
+      "help": "Make stdout line buffered.  Useful if you want to see the data while capturing it.  E.g.,"
+    },
+    {
+      "keyword": "-L",
+      "alias": "--list-data-link-types",
+      "help": "List the known data link types for the interface, in the specified mode, and exit.  The list of known data link types may be dependent on the specified mode; for example, on some platforms, a Wi-Fi  interface  might  support one set of data link types when not in monitor mode (for example, it might support only fake Ethernet headers, or might support 802.11 headers but not support 802.11headers with radio information) and another set of data link types when in monitor mode (for example, it might support 802.11 headers, or 802.11 headers with radio information,\tonly  in  monitormode)."
+    },
+    {
+      "keyword": "-m",
+      "variable": "module",
+      "type": "file",
+      "help": "Load SMI MIB module definitions from file module.\t This option can be used several times to load several MIB modules into tcpdump."
+    },
+    {
+      "keyword": "-M",
+      "variable": "secret",
+      "help": "Use secret as a shared secret for validating the digests found in TCP segments with the TCP-MD5 option (RFC 2385), if present."
+    },
+    {
+      "keyword": "-n",
+      "group": "display",
+      "help": "Don't convert addresses (i.e., host addresses, port numbers, etc.) to names."
+    },
+    {
+      "keyword": "-N",
+      "group": "display",
+      "help": "Don't print domain name qualification of host names.  E.g., if you give this flag then tcpdump will print ``nic'' instead of ``nic.ddn.mil''."
+    },
+    {
+      "keyword": "--number",
+      "group": "display",
+      "help": "Print an optional packet number at the beginning of the line."
+    },
+    {
+      "keyword": "-O",
+      "alias": "--no-optimize",
+      "help": "Do not run the packet-matching code optimizer.  This is useful only if you suspect a bug in the optimizer."
+    },
+    {
+      "keyword": "-p",
+      "alias": "--no-promiscuous-mode",
+      "group": "capture",
+      "help": "Don't put the interface into promiscuous mode.\tNote that the interface might be in promiscuous mode for some other reason; hence, `-p' cannot be used as an abbreviation for `ether host {local-hw-addr} or ether broadcast'."
+    },
+    {
+      "keyword": "--print",
+      "group": "display",
+      "help": "Print parsed packet output, even if the raw packets are being saved to a file with the -w flag."
+    },
+    {
+      "keyword": "-Q",
+      "alias": "--direction",
+      "variable": "direction",
+      "seperator": "=",
+      "choices": ["in", "out", "inout"],
+      "group": "capture",
+      "help": "Choose send/receive direction direction for which packets should be captured. Possible values are `in', `out' and `inout'. Not available on all platforms."
+    },
+    {
+      "keyword": "-q",
+      "group": "display",
+      "help": "Quick (quiet?) output.  Print less protocol information so output lines are shorter."
+    },
+    {
+      "keyword": "-r",
+      "variable": "file",
+      "type": "file",
+      "display_order": 2,
+      "help": "Read packets from file (which was created with the -w option or by other tools that write pcap or pcapng files).\tStandard input is used if file is ``-''."
+    },
+    {
+      "keyword": "-S",
+      "alias": "--absolute-tcp-sequence-numbers",
+      "help": "Print absolute, rather than relative, TCP sequence numbers."
+    },
+    {
+      "keyword": "-s",
+      "keyword": "--snapshot-length",
+      "variable": "snaplen",
+      "seperator": "=",
+      "group": "capture",
+      "help": "Snarf snaplen bytes of data from each packet rather than the default of 262144 bytes.  Packets truncated because of a limited snapshot are indicated in the output with ``[|proto]'',  where  protois the name of the protocol level at which the truncation has occurred."
+    },
+    {
+      "keyword": "-T",
+      "variable": "type",
+      "help": "Force packets selected by \"expression\" to be interpreted the specified type.  Currently known types are aodv (Ad-hoc On-demand Distance Vector protocol), carp (Common  Address  Redundancy  Protocol), cnfp (Cisco NetFlow protocol), domain (Domain Name System), lmp (Link Management Protocol), pgm (Pragmatic General Multicast), pgm_zmtp1 (ZMTP/1.0 inside PGM/EPGM), ptp (Precision Time Protocol), radius (RADIUS), resp (REdis Serialization Protocol), rpc (Remote Procedure Call), rtcp (Real-Time Applications control protocol), rtp (Real-Time Applications protocol), snmp (Simple Network  Management Protocol), someip (SOME/IP), tftp (Trivial File Transfer Protocol), vat (Visual Audio Tool), vxlan (Virtual eXtensible Local Area Network), wb (distributed White Board) and zmtp1(ZeroMQ Message Transport Protocol 1.0)."
+    },
+    {
+      "keyword": "-t",
+      "group": "display",
+      "help": "Don't print a timestamp on each dump line."
+    },
+    {
+      "keyword": "-tt",
+      "group": "display",
+      "help": "Print the timestamp, as seconds since January 1, 1970, 00:00:00, UTC, and fractions of a second since that time, on each dump line."
+    },
+    {
+      "keyword": "-ttt",
+      "group": "display",
+      "help": "Print a delta (microsecond or nanosecond resolution depending on the --time-stamp-precision option) between current and previous line on each dump line.\tThe default is microsecond resolution."
+    },
+    {
+      "keyword": "-tttt",
+      "group": "display",
+      "help": "Print a timestamp, as hours, minutes, seconds, and fractions of a second since midnight, preceded by the date, on each dump line."
+    },
+    {
+      "keyword": "-ttttt",
+      "group": "display",
+      "help": "Print a delta (microsecond or nanosecond resolution depending on the --time-stamp-precision option) between current and first line on each dump line.  The default is microsecond resolution."
+    },
+    {
+      "keyword": "-u",
+      "group": "display",
+      "help": "Print undecoded NFS handles."
+    },
+    {
+      "keyword": "-U",
+      "alias": "--packet-buffered",
+      "help": "If the  -w option is not specified, or if it is specified but the --print flag is also specified, make the printed packet output ``packet-buffered''; i.e., as the description of the contents ofeach packet is printed, it will be written to the standard output, rather than, when not writing to a terminal, being written only when the output buffer fills."
+    },
+    {
+      "keyword": "-v",
+      "group": "display",
+      "help": "When parsing and printing, produce (slightly more) verbose output.  For example, the time to live, identification, total length and options in an IP packet are printed.  Also enables additionalpacket integrity checks such as verifying the IP and ICMP header checksum."
+    },
+    {
+      "keyword": "-vv",
+      "group": "display",
+      "help": "Even more verbose output. For example, additional fields are printed from NFS reply packets, and SMB packets are fully decoded."
+    },
+    {
+      "keyword": "-vvv",
+      "group": "display",
+      "help": "Even more verbose output. For example, telnet SB ... SE options are printed in full.  With -X Telnet options are printed in hex as well."
+    },
+    {
+      "keyword": "-V",
+      "variable": "file",
+      "type": "file",
+      "help": "Read a list of filenames from file. Standard input is used if file is ``-''."
+    },
+    {
+      "keyword": "-w",
+      "variable": "file",
+      "type": "savefile",
+      "display_order": 3,
+      "help": "Write the raw packets to file rather than parsing and printing them out.\tThey can later be printed with the -r option.  Standard output is used if file is ``-''."
+    },
+    {
+      "keyword": "-W",
+      "variable": "filecount",
+      "help": "Used in conjunction with the -C option, this will limit the number of files created to the specified number, and begin overwriting files from the beginning, thus creating a 'rotating' buffer.  Inaddition, it will name the files with enough leading 0s to support the maximum number of files, allowing them to sort correctly."
+    },
+    {
+      "keyword": "-x",
+      "group": "display",
+      "help": "When  parsing  and  printing,  in addition to printing the headers of each packet, print the data of each packet (minus its link level header) in hex.  The smaller of the entire packet or snaplenbytes will be printed.  Note that this is the entire link-layer packet, so for link layers that pad (e.g. Ethernet), the padding bytes will also be printed when the higher layer packet is shorterthan the required padding.  In the current implementation this flag may have the same effect as -xx if the packet is truncated."
+    },
+    {
+      "keyword": "-xx",
+      "group": "display",
+      "help": "When parsing and printing, in addition to printing the headers of each packet, print the data of each packet, including its link level header, in hex."
+    },
+    {
+      "keyword": "-X",
+      "group": "display",
+      "help": "When  parsing and printing, in addition to printing the headers of each packet, print the data of each packet (minus its link level header) in hex and ASCII.  This is very handy for analysing newprotocols.  In the current implementation this flag may have the same effect as -XX if the packet is truncated."
+    },
+    {
+      "keyword": "-XX",
+      "group": "display",
+      "help": "When parsing and printing, in addition to printing the headers of each packet, print the data of each packet, including its link level header, in hex and ASCII."
+    },
+    {
+      "keyword": "-y",
+      "alias": "--linktype",
+      "variable": "datalinktype",
+      "seperator": "=",
+      "group": "capture",
+      "help": "Set the data link type to use while capturing packets (see -L) or just compiling and dumping packet-matching code (see -d) to datalinktype."
+    },
+    {
+      "keyword": "-z",
+      "variable": "postrotate-command",
+      "help": "Used in conjunction with the -C or -G options, this will make tcpdump run \" postrotate-command file \" where file is the savefile being closed after each rotation. For example, specifying -z  gzipor -z bzip2 will compress each savefile using gzip or bzip2."
+    },
+    {
+      "keyword": "-Z",
+      "alias": "--relinquish-privileges",
+      "variable": "user",
+      "seperator": "=",
+      "help": "If tcpdump is running as root, after opening the capture device or input savefile, change the user ID to user and the group ID to the primary group of user."
+    },
+    {
+      "variable": "expression",
+      "display_order": 4,
+      "help": "selects which packets will be dumped.  If no expression is given, all packets on the net will be dumped.  Otherwise, only packets for which expression is `true' will be dumped."
+    }
+  ]
+}
