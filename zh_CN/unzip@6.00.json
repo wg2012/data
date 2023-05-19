@@ -1,0 +1,181 @@
+{
+  "command": "unzip",
+  "show_version": "unzip -v | awk '{print $2}'",
+  "supported_versions": ["6.00"],
+  "arguments": [
+    {
+      "keyword": "-Z",
+      "help": "zipinfo(1) 模式. 如果命令行上的第一个选项是 -Z， 则其余选项将被视为 zipinfo（1） 选项。"
+    },
+    {
+      "keyword": "-c",
+      "help": "解压文件到标准输出（屏幕）。该选项类似于-p选项，不同之处是在提取文件时打印每个文件的名称，允许使用-a选项，并且在适当的情况下自动执行ASCII-EBCDIC转换。"
+    },
+    {
+      "keyword": "-f",
+      "help": "刷新现有文件"
+    },
+    {
+      "keyword": "-l",
+      "help": "列出压缩包里的文件 (短格式)."
+    },
+    {
+      "keyword": "-p",
+      "help": "解压文件到管道 (标准输出). 只有文件数据被发送到标准输出，并且文件总是以二进制格式提取，就像它们被存储一样(没有转换)。"
+    },
+    {
+      "keyword": "-t",
+      "help": "测试压缩包. 该选项从内存中提取每个指定的文件，并将扩展后的文件的CRC(循环冗余检查，一种增强的校验和)与原始文件的存储CRC值进行比较。"
+    },
+    {
+      "keyword": "-T",
+      "help": "[大多数操作系统] 将归档文件的时间戳设置为每个归档文件中最新文件的时间戳。 这对应于zip的-go选项，除了它可以用通配符并且要快得多。"
+    },
+    {
+      "keyword": "-u",
+      "help": "更新现有文件并在需要时创建新文件。该选项执行与-f选项相同的功能，提取(使用查询)比磁盘上同名文件更新的文件，此外还提取磁盘上不存在的文件。有关正确设置时区的信息，请参见上面的-f。"
+    },
+    {
+      "keyword": "-v",
+      "help": "列出压缩包(详细格式)或显示诊断版本信息。"
+    },
+    {
+      "keyword": "-z",
+      "help": "只显示存档注释"
+    },
+    {
+      "keyword": "-a",
+      "help": "转换文本文件。通常情况下，所有的文件都被提取出来，就像它们被存储时一样(作为“二进制”文件)。-a选项会导致由zip标识为文本文件的文件(那些在zipinfo列表中带有' t'标签的文件，而不是' b')被自动提取，根据需要转换行结束符、文件结束符和字符集本身。"
+    },
+    {
+      "keyword": "-b",
+      "help": "[一般]将所有文件视为二进制(不进行文本转换)。"
+    },
+    {
+      "keyword": "-B",
+      "help": "保存每个被覆盖文件的备份副本(如果在编译时定义了UNIXBACKUP)"
+    },
+    {
+      "keyword": "-C",
+      "help": "从提取选择模式的命令行列表中选择存档条目时，使用不区分大小写的匹配。"
+    },
+    {
+      "keyword": "-D",
+      "help": "不恢复提取文件的时间戳。"
+    },
+    {
+      "keyword": "-E",
+      "help": "[MacOS]在恢复操作期间显示MacOS额外字段的内容。"
+    },
+    {
+      "keyword": "-F",
+      "help": "将文件类型信息从ACORN RISC OS额外字段块转换为NFS文件类型扩展名，并将其附加到提取的文件名称中。(如果在编译时定义了 ACORN_FTYPE_NFS)"
+    },
+    {
+      "keyword": "-i",
+      "help": "[MacOS]忽略存储在MacOS额外字段中的文件名。相反，将使用存储在项头的通用部分中最兼容的文件名。"
+    },
+    {
+      "keyword": "-j",
+      "help": "垃圾的路径。归档文件的目录结构不会被重新创建;所有文件都保存在提取目录中(默认是当前目录)。"
+    },
+    {
+      "keyword": "-J",
+      "help": "[MacOS]忽略MacOS的额外字段所有Macintosh特定的信息都会被跳过。Data-fork和resource-fork被恢复为单独的文件。"
+    },
+    {
+      "keyword": "-K",
+      "help": "[AtheOS, BeOS, Unix]保留SUID/SGID/ tack文件属性如果没有此标志，出于安全原因，这些属性位将被清除。"
+    },
+    {
+      "keyword": "-L",
+      "help": "在只使用大写的操作系统或文件系统上生成的任何文件名都要转换为小写。"
+    },
+    {
+      "keyword": "-M",
+      "help": "通过管道将所有输出通过一个类似于Unix more(1)命令的内部分页器。在满屏输出的末尾，unzip会以一个``——More——`提示符暂停;下一屏可以通过回车键或空格键查看。"
+    },
+    {
+      "keyword": "-n",
+      "help": "永远不要覆盖现有的文件。如果文件已经存在，则跳过该文件的提取而不提示。"
+    },
+    {
+      "keyword": "-O",
+      "variable": "CHARSET",
+      "choices": ["CP936","GBK","GB18030"],
+      "help": "为DOS、Windows和OS/2存档文件指定字符编码"
+    },
+    {
+      "keyword": "-I",
+      "variable": "CHARSET",
+      "help": "为UNIX和其他存档文件指定字符编码"
+    },
+    {
+      "keyword": "-o",
+      "help": "不提示覆盖现有文件。这是一个危险的选择，所以要小心使用。"
+    },
+    {
+      "keyword": "-P",
+      "variable": "password",
+      "help": "使用密码解密加密的压缩包(如果有的话)。这是不安全的!"
+    },
+    {
+      "keyword": "-q",
+      "help": "安静地执行操作(-qq 更安静)。"
+    },
+    {
+      "keyword": "-s",
+      "help": "[OS/2, NT, MS-DOS] 将文件名中的空格转换为下划线。"
+    },
+    {
+      "keyword": "-U",
+      "help": "[UNICODE_SUPPORT] 修改或禁用UTF-8处理。"
+    },
+    {
+      "keyword": "-V",
+      "help": "保留(VMS)文件版本号。"
+    },
+    {
+      "keyword": "-W",
+      "help": "[如果在编译时启用了 WILD_STOP_AT_DIR] 修改模式匹配例程，使`?`(单字符通配符)和`* `(多字符通配符)不匹配目录分隔符`/ `。(两个字符序列``** `充当多字符通配符，在其匹配字符中包含目录分隔符。) "
+    },
+    {
+      "keyword": "-X",
+      "help": "[VMS, Unix, OS/2, NT, Tandem] 恢复VMS下的所有者/保护信息(UICs和ACL条目)，或Unix下的用户和组信息(UID/GID)，或某些OS/2的网络启用版本下的访问控制列表(ACL)(带有IBM LAN Server/Requester 3.0到5.0的Warp服务器;Warp Connect with IBM Peer 1.0)或Windows NT下的安全ACL。"
+    },
+    {
+      "keyword": "-$",
+      "help": "如果提取介质是可移动的(例如，软盘)，则恢复卷标签。将选项加倍(-$$)也可以标记固定媒体(硬盘)。默认情况下，卷标签被忽略。"
+    },
+    {
+      "keyword": "-^",
+      "help": "允许在提取的文件的名称中使用控制字符。"
+    },
+    {
+      "variable": "file.zip",
+      "type": "file",
+      "file_extensions": [".zip"],
+      "display_order": 1,
+      "help": "ZIP压缩包的路径。允许使用通配符。",
+      "required": true
+    },
+    {
+      "variable": "members",
+      "display_order": 2,
+      "help": "要解压的文件列表，以空格分隔。正则表达式(通配符)可用于匹配多个文件。"
+    },
+    {
+      "keyword": "-x",
+      "variable": "xfile",
+      "display_order": 3,
+      "help": "压缩包内不解压的文件列表。允许使用通配符。"
+    },
+    {
+      "keyword": "-d",
+      "variable": "exdir",
+      "type": "directory",
+      "display_order": 4,
+      "help": "解压缩文件到的可选目录。默认情况下，在当前目录下重新创建所有文件和子目录。"
+    }
+  ]
+}
